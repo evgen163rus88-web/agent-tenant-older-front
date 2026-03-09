@@ -1,0 +1,81 @@
+$space-base: 6px;
+$radius-base: 2px;
+
+@function space($i) {
+  @return $space-base * $i;
+}
+
+@mixin px($space) {
+  padding-left: $space;
+  padding-right: $space;
+}
+
+@mixin py($space) {
+  padding-top: $space;
+  padding-bottom: $space;
+}
+
+@mixin mx($space) {
+  margin-left: $space;
+  margin-right: $space;
+}
+
+@mixin my($space) {
+  margin-top: $space;
+  margin-bottom: $space;
+}
+
+@for $i from 0 through 8 {
+  %mt-#{$i} { margin-top: space($i); }
+  %mr-#{$i} { margin-right: space($i); }
+  %mb-#{$i} { margin-bottom: space($i); }
+  %ml-#{$i} { margin-left: space($i); }
+  %m-#{$i} { margin: space($i); }
+  %my-#{$i} { @include my(space($i)); }
+  %mx-#{$i} { @include mx(space($i)); }
+
+  %mt-n#{$i} { margin-top: space(-$i); }
+  %mr-n#{$i} { margin-right: space(-$i); }
+  %mb-n#{$i} { margin-bottom: space(-$i); }
+  %ml-n#{$i} { margin-left: space(-$i); }
+  %m-n#{$i} { margin: space(-$i); }
+
+  %pt-#{$i} { padding-top: space($i); }
+  %pr-#{$i} { padding-right: space($i); }
+  %pb-#{$i} { padding-bottom: space($i); }
+  %pl-#{$i} { padding-left: space($i); }
+  %p-#{$i} { padding: space($i); }
+  %py-#{$i} { @include py(space($i)); }
+  %px-#{$i} { @include px(space($i)); }
+};
+
+%mt-05 { margin-top: space(0.5); }
+%mr-05 { margin-right: space(0.5); }
+%mb-05 { margin-bottom: space(0.5); }
+%ml-05 { margin-left: space(0.5); }
+%m-05 { margin: space(0.5); }
+%my-05 { @include my(space(0.5)); }
+%mx-05 { @include mx(space(0.5)); }
+
+%pt-05 { padding-top: space(0.5); }
+%pr-05 { padding-right: space(0.5); }
+%pb-05 { padding-bottom: space(0.5); }
+%pl-05 { padding-left: space(0.5); }
+%p-05 { padding: space(0.5); }
+%py-05 { @include py(space(0.5)); }
+%px-05 { @include px(space(0.5)); }
+
+@mixin shadow-border($color, $size: 1px) {
+  box-shadow: inset 0 0 0 $size $color;
+}
+
+%container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%layout {
+  width: 100%;
+  display: flex;
+}

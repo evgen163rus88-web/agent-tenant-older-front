@@ -1,0 +1,203 @@
+$line-h: 66px;
+.booking-area {
+  display: flex;
+  height: auto;
+  overflow-x: hidden;
+
+  &__table-block {
+    overflow-x: scroll;
+
+    .booking-area__top-line {
+      position: sticky;
+      left: 0;
+    }
+
+    .w-content {
+      width: max-content;
+    }
+    
+    @media screen and (max-width: 780px) {
+      width: max-content;
+      min-width: 60%;
+
+      .book-line {
+        width: max-content;
+      }
+    }
+  }
+
+  &__units {
+    display: flex;
+    width: 220px;
+    border-bottom: 1px solid color(gray);
+    border-right: 1px solid color(gray);
+    border-left: none;
+
+    &--caption {
+      @extend %p-1;
+      background-color: color(gray-before);
+      border-bottom: 1px solid color(gray);
+      position: sticky;
+      left: 0;
+    }
+
+    @media screen and (max-width: 780px) {
+      width: 116px;
+    }
+
+    &:nth-child(1) {
+      border-bottom: none;
+    }
+
+    .inner {
+      display: flex;
+      align-items: center;
+      height: calc(#{$line-h} - 1px);
+
+      span {
+        white-space: break-spaces;
+      }
+    }
+
+    & > * {
+      width: 100%;
+    }
+  }
+
+  &__calendar {
+    border: 1px solid color(gray);
+    border-right: none;
+    border-left: none;
+  }
+
+  &__header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color(gray-semi);
+    border-bottom: 1px solid color(gray);
+
+    &--calendar {
+      @media screen and (max-width: 780px) {
+        width: max-content;
+        min-width: 60%;
+      }
+    }
+
+    &--dates {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid color(gray);
+
+      &:nth-child(1) {
+        border-left: none;
+      }
+    }
+  }
+
+  &__top-line {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid color(gray);
+    border-bottom: 1px solid color(gray);
+    height: 45px;
+
+    &.months-h {
+      border-top: none;
+      padding: space(1);
+
+      span {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__left-block {
+    transition: box-shadow 0.3s ease-in-out;
+
+    .booking-area__units {
+      font-size: fontSize(paragrapf);
+    }
+
+    &.shadow {
+      box-shadow: 4px 0px 8px 0px rgb(0 0 0 / 40%);
+      z-index: 5;
+    }
+  }
+
+  &__response {
+    display: flex;
+
+    &--cell {
+      height: #{$line-h};
+      border-left: 1px solid color(gray);
+      border-bottom: 1px solid color(gray);
+      padding: space(0.5) 0;
+    }
+  }
+
+  &__time-line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 70%;
+    width: 100%;
+    padding: space(1);
+    border-radius: space(1);
+    transform: translateY(-50%);
+    grid-row-start: 1;
+    grid-row-end: 1;
+    overflow: hidden;
+
+    &:hover {
+      z-index: 3 !important;
+    }
+
+    &--info {
+      padding-left: 5px;
+      border-left: 3px solid currentColor;
+      border-radius: 3px;
+    }
+
+    p {
+      white-space: nowrap;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    height: 80px;
+    visibility: hidden;
+  }
+
+  &__months-head {
+    &--inner {
+      height: 45px;
+      padding: space(1);
+      border-bottom: 1px solid color(gray);
+      border-right: 1px solid color(gray);
+      text-align: center;
+      color: color(bg-dark);
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      span {
+        line-height: 30px;
+      }
+    }
+  }
+
+  &--active-book {
+    @media screen and (max-width: 1320px) and (min-width: 800px) {
+      margin-top: space(2);
+    }
+  }
+}
+
+.booking-dropdown {
+  position: absolute;
+  right: 10px;
+}
