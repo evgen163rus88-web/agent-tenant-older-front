@@ -1,0 +1,22 @@
+entry: Entering the system
+dashboard: Dashboard
+loading: Loading...
+warning: Warning!
+rightReserved: All rights reserved
+addRecording: Add recording
+editRecording: Edit recording
+error: Error
+description: Description
+noData: No data
+inputAtLeast: Please enter at least 3 symbols
+unsavedChanges: Are you sure that you want to exit?
+addObject: Add object
+addUser: Add User
+editObject: Edit Object
+createObject: Create Object
+periodBooking: From {from} to {to}
+againChooseProperty: Choose property first
+chooseProperty: Choose Property
+booking: Bookings
+exit: Exit
+desideCheckOutDeposit: Indicate what to do with the client's security deposit

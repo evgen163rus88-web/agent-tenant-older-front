@@ -1,0 +1,13 @@
+$font-sizes: (
+  headline: 24px,
+  headline-2: 20px,
+  headline-3: 18px,
+  title: 16px,
+  paragraph: 14px,
+  label: 12px,
+  small: 10px
+);
+
+@function fontSize($size) {
+  @return map-get($font-sizes, $size);
+}

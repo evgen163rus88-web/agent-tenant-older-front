@@ -1,0 +1,410 @@
+entry: Вход в систему
+dashboard: Доска
+loading: Загрузка...
+warning: Внимание!
+rightReserved: Все права защищены
+addRecording: Добавление записи
+editRecording: Редактирование записи
+error: Ошибка
+description: Описание
+noData: Нет данных
+inputAtLeast: Введите не менее 3-х символов
+unsavedChanges: Вы уверены, что хотите уйти?
+addObject: Добавить объект
+addUser: Добавить пользователя
+editObject: Редактировать объект
+createObject: Создать объект
+periodBooking: С {from} по {to}
+againChooseProperty: Сначала выберите недвижимость
+chooseProperty: Выберите недвижимость
+booking: Бронирования
+exit: Выход
+type: Тип
+fields:
+  created: Создан
+  updated: Обновлён
+  guest: Гость
+  startDate: С
+  endDate: По
+  ofGuests: Гостей
+  ofGuestsNum: 0 гостей | {count} гость | {count} гостя | {count} гостей
+  currentStatusOfApartament: Текущий статус у апартамента
+  onlyAvailableUnits: Только доступные апартаменты
+  checkProperties: Укажите недвижимость
+  chooseApartament: Укажите жилой объект
+  apartament: Жильё
+  chooseClient: Укажите клиента
+  periodBooking: Период бронирования
+  payDayForLease: Число платежа по аренде
+  countGuests: Кол-во гостей
+  pledgeCurrency: Валюта депозита
+  agentClient: Агент клиента
+  pledge: Страховой депозит
+  currency: Валюта
+  agencyCommission: Агентская комиссия
+  counters: Показания счётчиков
+  address: Адрес
+  percent: Проценты
+  electric: Электричество
+  toPay: К оплате
+  sum: Сумма
+  water: Вода
+  tariff: Тариф
+  tariffWater: Тариф вода
+  valueRate: Показания
+  tariffElectric: Тариф электричество
+  chooseClientIf: Укажите клиента (если есть)
+  valueElectric: Показания
+  valueWater: Показания
+  expenses: Расход
+  expenses2: Расходы
+  incomes: Доход
+  amount: Сумма
+  includeWater: Включена вода
+  includeElectricity: Включено электричество
+  includeHousekeeping: Включена уборка
+  isActiveCompany: Активирована учётная запись компании
+  changeCompany: Выберите компанию
+  mainPhoneNumber: Основной номер телефона
+  passportNumber: Номер паспорта клиента или ID
+  setPriceForPeriod: Стоимость за период
+  setPriceForMounth: Стоимость за месяц
+  square: Площадь M2
+  countLivingRoom: Количество спален/жилых комнат
+  typeProp: Тип недвижимости
+  date: Дата
+pages:
+  bills: Счета
+  makebooking: Форма бронирования
+  mycompany: Компания
+  booking: Бронирование
+  users: Сотрудники
+  clients: Клиенты
+  useredit: Редактирование пользователя
+  properties: Недвижимость
+  apartments: Жилые объекты
+  dashboard: Приборная доска
+  communal: Коммунальные услуги
+  signin: Вход в Agent Tenant
+  createobj: Создание жилого объекта
+  calendar: Календарь бронирований
+  pageerror: Ошибка маршрутизации
+  err-404: К сожалению, страница, которую вы ищете, недоступна или не существует.
+  err-403: Доступ запрещён.
+  myсompany: Моя компания
+  welcome: Добро пожаловать
+  expiring: Заканчивается аренда
+page:
+  loading: Загрузка...
+  errorHasOccurred: Произошла ошибка!
+marginality:
+  opt: Прибыль с оптовых продаж {sum} рублей
+  retail: Прибыль с розницы {sum} рублей
+'yes': Да
+'no': Нет
+photos: Фотографии недвижимости
+sort: Сортировка
+editing: Редактирование
+btns:
+  delete: Удалить
+  edit: Редактировать
+  addDoc: Добавить запись
+  excelDownload: Выгрузить в Excel
+  create: Создать
+  addUser: Создать пользователя
+  resetFilters: Сбросить фильтры
+  save: Сохранить
+  cancel: Отмена
+  cancel2: Отменить
+  ok: Ok
+  enter: Войти
+  ready: Готово
+  addFile: Прикрепить файл
+  next: Далее
+  back: Назад
+  approve: Подтвердить
+  guestNotCheckin: Гость не заселился
+  reset: Очистить
+  createBooking: Создать бронь
+  more: Подробнее
+  lastweek: За последнюю неделю
+  lastmonth: За последний месяц
+  lastyear: За последний год
+  createNewClient: Добавить клиента
+fastCreateClient: Быстрое создание нового клиента
+showMore: Показать ещё
+search: Поиск
+createGoodsSuccess: Объект успешно создан!
+removeGoodsSuccess: Объект успешно удалён!
+createUserSuccess: Пользователь успешно создан!
+editGoodsSuccess: Объект успешно отредактирован!
+editUserSuccess: Данные пользователя успешно изменены.
+dataSuccessUpdated: Данные успешно обновлены!
+countRecords: Количество записей
+confirmTextOnDelete: >-
+  Вы дествительно хотите удалить данный товар? Его восстановление будет
+  невозможно
+confirmTextOnDeleteCategory: >-
+  Вы дествительно хотите удалить Категорию товара? Её восстановление будет
+  невозможно.
+pageError: Что-то пошло не так
+fieldRequired: Это поле обязательно
+fieldEmailErr: Введите правильный адрес электронной почты
+customers: Клиенты
+customer: Клиент
+email: E-mail
+users:
+  title: Сотрудники
+  account: Учётная запись
+  firstName: Имя
+  lastName: Фамилия
+  login: Логин
+  loginOrEmail: Логин или E-mail
+  password: Пароль
+  role: Роль пользователя
+  roleShort: Роль
+  active: Разблокирована
+  unActive: Заблокирована
+  unActive2: Не активный
+  lastVisited: Последняя активность
+  isActive: Активный
+  ownerEmail: Владелец почты
+  note: Примечание
+USER: Пользователь
+ADMIN: Администратор
+EMPLOYEE: Сотрудник
+MANAGER: Менеджер
+titleExcelModal: Настройки для выгружаемого Excel файла
+creatorNewsletter: Создание рассылки по E-mail
+titleMessage: Заголовок письма
+emailHeaderTheme: Тема письма
+textMail: Текст письма
+typesFilesForUpload: Сюда можно прикрепить любой файл
+forbidden: Не хватает прав
+deleteCompleted: Удаление завершено
+deleteCancel: Удаление отменено
+owner: Собственник
+isHaveKitchen: Наличие кухни
+notFoundData: Ничего не найдено
+bookingStatuses:
+  NOT_AVAILABLE: Не доступно
+  RESERVED: Забронировано
+  FREE: Свободно
+  CHECK_IN: Занято
+  CHECK_OUT: Выселяются
+listObj:
+  firstName: Имя
+  lastName: Фамилия
+  passportNumber: Номер паспорта
+  name: Наименование
+  nameCompany: Название компании
+  status: Статус
+  roomArea: Площадь
+  countBedRooms: Кол-во спален
+  countBathRooms: Кол-во ванных комнат
+  priceMouth: Цена в месяц
+  priceDay: Цена посуточно
+  updatedAt: Последние изменение
+  basePhoneNumber: Основной телефон
+  secondaryPhoneNumber: Дополнительный телефон
+  country: Страна
+  contactPerson: Контактное лицо
+confirmRemove: Подтверждаете удаление. Продолжить?
+confirmRemoveSub: Подтверждаете удаление {subject}. Продолжить?
+noties: Заметки
+addNote: Добавить заметку
+editApartament: Редактирование объекта
+editDataCustomer: Редактирование данных клиента
+photosDocs: Фото или сканы документов
+invalidatePhone: Неверный формат номера телефона
+checkCorrectForm: Проверьте корректность заполнения формы!
+createClientSuccess: Клиент успешно создан!
+editClientSuccess: Клиент успешно отредактирован!
+docsPhoto: Фото документов клиента
+apartments: Жилые объекты
+makeBooking: Создание записи бронирования
+editBooking: Редактирование бронирования
+choosePeriod: Выберите период
+isAvailableForBooking: Доступно для бронирования?
+percent: Проценты
+daysOfWeek:
+  '0': Вс
+  '1': Пн
+  '2': Вт
+  '3': Ср
+  '4': Чт
+  '5': Пт
+  '6': Сб
+beforeChooseDate: Сначала укажите период
+rentlyApartament: Бронь / аренда
+period: Период
+editBookingOnlyCancel: Смена объекта только через отмену брони!
+deleteСompletedBooking: Бронирование отменено.
+inThisRangeAvailableApartaments: В данном дипаозоне дат нет свободных апартаментов
+bookings: Бронирования
+depositBefore: Депозит раннего бронирования
+createNoteCommunal: Внести показания
+createNoteCommunal2: Ввод показаний счётчиков
+billsTypes:
+  MAINTAINANCE: Обслуживание
+  APPLIANCES: Мебель/Бытовая техника
+  REPAIRS: Ремонтные работы
+  COMMUNAL: Коммунальные услуги
+  RENT: Арендная плата
+  OTHER: Другое
+billsExpensesType:
+  title: Тип расхода
+billsIncomeType:
+  title: Тип дохода
+electric: Электричество
+savedSuccess: Успешно сохранено
+changedSuccess: Изменения внесены
+previosValue: Предыдущие показания - {last}
+isPaid: Оплачено
+currentValueLessThanPrev: Текущие показания меньше, чем предыдущие
+noResultsFoundForThisRequest: По вашему запросу ничего не найдено
+enterSearchParameters: Для вывода информации необходимо заполнить фильтр жилья
+noNotification: Нет уведомлений
+editMaintance: Редактирование показаний
+incomExpenses: Доходы / Расходы
+setIncome: Записать доход
+setExpenses: Записать расход
+makingExpense: Внесение расхода
+makingIncome: Записать доход
+unpaidCustomerBills: Неоплаченные коммунальные услуги
+summaryIncomeCommunal: За воду {sumW};  За электричество {sumE}; От - {date}
+properties: Объекты недвижимости
+securityDeposits: Страховые депозиты
+earlyDeposits: Депозиты раннего бронирования
+expiringLaeses: Заканчивается аренда
+apartmentStat: Статусы жилья
+viewBooking: Детали бронирования
+expiringLeasesDays: В течении {days} дней
+stateTitle: Выручка
+filterHome: Фильтр
+month:
+  0: Январь
+  1: Февраль
+  2: Март
+  3: Апрель
+  4: Май
+  5: Июнь
+  6: Июль
+  7: Август
+  8: Сентябрь
+  9: Октябрь
+  10: Ноябрь
+  11: Декабрь
+newNotice: У вас {count} новое уведомление
+newNoticeFew: У вас {count} новых уведомления
+noticeNames:
+  beforeOneWeek: Через неделю
+  beforeThreeDay: Через три дня
+  tomorrow: Завтра
+  today: Сегодня
+  payDayToday: Сегодня
+  payDayTommorow: Завтра
+  payDay: день платежа по аренде в 
+  checkIn: заселение в 
+  expiringLeases: истекает срок аренды в 
+  changeBookingStatus: изменение статуса аренды в 
+  checkOut: выселение в 
+confirmForChangeStatus: Подтверждение изменения статуса
+confirmCheckInGuest: Вы подтверждаете заселение гостя?
+automaticSetRentPayment: Автоматическое зачисление арендной платы
+automaticSetOtherPayment: Доход из депозита раннего бронирования
+confirmedCheckIn: >-
+  Заселение успешно подтверждено! Депозит раннего бронирования перенесён в счёт
+  оплаты аренды гостем.
+notConfirmedCheckInWithoutDeposit: >-
+  Заселение НЕ подтверждено! 
+  Бронь автоматически отменена.
+notConfirmedCheckIn: >-
+  Заселение НЕ подтверждено! Депозит раннего бронирования перенесён в счёт
+  дохода организации. Бронь автоматически отменена.
+dontForgotTakeSecurityDeposit: Не забудьте взять страховой депозит у клиента проживающего в {where}!
+desideCheckOutDeposit: Укажите что делать со страховым депозитом клиента
+refundAllSecurityDeposit: Всё хорошо? Отдать полностью страховой депозит?
+returnedSecurityDeposit: >-
+  Страховой депозит считается возвращённым, бронь переведена в статус клиент
+  выселился.
+makingIncomeFromDeposit: Вычет из страхового депозита
+amoutDeposit: 'Сумма страхового депозита: {sum}.'
+continuePutIncomeFromDeposit: Добавить ещё запись в доход из страхового депозита?
+partSecurityDeposit: >-
+  Доходы из страхового депозита учтены, бронь переведена в статус клиент
+  выселился.
+shortDesc: Краткое описание
+shortDescApart: Краткое описание жилого объекта
+showFilters: Показать фильтры
+hideFilters: Скрыть фильтры
+noticeByObj: Заметки по объекту
+chooseCurrency: Выберите валюту
+pricerPerMonth: Стоимость в месяц
+pricerPerMonthRent: Стоимость аренды в месяц
+pricePerDay: Стоимость в день
+pricePerDayRent: Стоимость аренды в день
+includeInRent: В стоимость аренды
+building: Здание
+isWiFi: Наличие Wi-Fi
+fioOwnerIfNeed: ФИО собственника, если требуется
+socialNetLink: Ссылка на профиль в соцсети
+countAccomondation: Количество жилых объектов
+countUsersInCompany: Количество пользователей
+avaliableOnlyDigits: Допустимы только цифры
+enterName: Введите наименование
+enterAddress: Введите адрес
+enterTypeProp: Укажите тип недвижимости
+enterParentObj: Выберите родительский объект
+chooseAccommodation: Выберите жильё
+chooseClient: Выберите клиента
+needPeriod: Не указан период
+chouldChooseCurrensyOfDeposit: Необходимо выбрать валюту депозита
+editCompany: Редактирование компании
+pricerPerPeriod: Стоимость за весь период
+noFoto: Нет фото
+version: Версия
+typeProperty:
+  VILLA: Вилла
+  APARTMENT: Апартаменты
+  TOWN_HOUSE: Таун Хаусы
+createCompanyField: Создать компанию
+listCompanyField: Список компаний
+usersCompanyField: Пользователи компаний
+currencies:
+  thb: Бат
+  usd: Доллар США
+  eur: Евро
+  gbr: Фунт стерлингов
+  cny: Юань
+  rub: Рубль
+clientFormValid:
+  firstName: Фамилия клиента
+  phoneNumber: Номер телефона клиента
+  passportNumber: Номер паспорта клиента или ID
+  enterFirstName: Введите имя
+  enterLastName: Введите фамилию
+  incorrectEmailFormat: Неверный формат e-mail
+  activeClient: Активный клиент
+  justActive: Активен
+locales:
+ title: Язык
+notifications: Уведомления
+showAllNotices: Показать все уведомления
+moreAboutRoles: Подробнее о ролях пользователя
+fromDate: От
+toDate: До
+descriptionRoleUser: >-
+  Имеет право только на просмотр страниц жилья и бронирования без возможности редактирования.
+descriptionRoleAdmin: >-
+  Полный доступ ко всем разделам приложения.
+descriptionRoleManager: >-
+  Почти такие же права, что и у администратора, кроме посещения страниц "Сотрудники" и "Недвивжимость",
+  а также нет прав на удаление жилых объектов, и просмотр статистики расходов и доходов.
+descriptionRoleEmployee: >-
+  Имеет право только на просмотр страниц жилья, бронирования (в том числе создание брони) и коммунальные услуги (в том числе редактирование).
+  А также просмотр карточек статуса жилья и истекающая аренда.
+tittlePayDayConfirmModal: Подтвердите зачисление оплаты аренды
+doYouConfirmPay: Вы подтверждаете оплату?
+confirmedRentPay: Автоматическое зачисление арендной платы прошло успешно
+discardRentPay: Автоматическое зачисление арендной платы отменено
