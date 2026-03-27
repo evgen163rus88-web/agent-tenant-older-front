@@ -18,12 +18,7 @@
     class="mr-3"
     v-loading="loading"
   >
-    <el-option
-      v-for="item in properties"
-      :key="item.id"
-      :label="item.label"
-      :value="item.id || ''"
-    />
+    <el-option v-for="item in properties" :key="item.id" :label="item.label" :value="item.id || ''" />
   </el-select>
 
   <el-card
@@ -33,12 +28,7 @@
     class="make-booking"
     v-loading="loading"
   >
-    <el-form
-      ref="ruleFormRef"
-      label-position="top"
-      :model="bookingForm"
-      :rules="isView ? {} : rules"
-    >
+    <el-form ref="ruleFormRef" label-position="top" :model="bookingForm" :rules="isView ? {} : rules">
       <el-form-item :label="$t('fields.periodBooking')" prop="periodTo" class="mb-3">
         <b-date-range-input
           v-model="datesBooking"
@@ -66,12 +56,7 @@
               :disabled="!bookingForm.periodFrom || !bookingForm.periodTo || !!bookId || isView"
               :no-data-text="$t('inThisRangeAvailableApartaments')"
             >
-              <el-option
-                v-for="item in apartaments"
-                :key="item.id"
-                :label="item.name"
-                :value="item.id || ''"
-              />
+              <el-option v-for="item in apartaments" :key="item.id" :label="item.name" :value="item.id || ''" />
             </el-select>
           </el-tooltip>
         </el-form-item>
@@ -81,13 +66,7 @@
           prop="customerId"
           class="mr-2 w-100 mw-30-desk"
         >
-          <el-select
-            v-model="bookingForm.customerId"
-            filterable
-            value-key="id"
-            style="width: 250px"
-            :disabled="isView"
-          >
+          <el-select v-model="bookingForm.customerId" filterable value-key="id" style="width: 250px" :disabled="isView">
             <el-option
               v-for="item in customers"
               :key="item.id"
@@ -98,12 +77,7 @@
         </el-form-item>
 
         <el-form-item v-show="!isView" :label="$t('fastCreateClient')" class="w-100 mw-30-desk">
-          <el-button
-            class="paragraph"
-            size="small"
-            type="primary"
-            @click="showFastCreateClient = true"
-          >
+          <el-button class="paragraph" size="small" type="primary" @click="showFastCreateClient = true">
             {{ $t("btns.createNewClient") }}
           </el-button>
         </el-form-item>
@@ -140,14 +114,8 @@
       />
 
       <div class="d-flex flex-column">
-        <p class="paragraph mb-2" style="color: var(--el-text-color-regular)">
-          {{ $t("includeInRent") }}:
-        </p>
-        <el-form-item
-          :label="$t('fields.includeWater')"
-          prop="includeWater"
-          class="make-booking--half mb-1"
-        >
+        <p class="paragraph mb-2" style="color: var(--el-text-color-regular)">{{ $t("includeInRent") }}:</p>
+        <el-form-item :label="$t('fields.includeWater')" prop="includeWater" class="make-booking--half mb-1">
           <el-switch
             v-model="bookingForm.includeWater"
             inline-prompt
@@ -159,11 +127,7 @@
           />
         </el-form-item>
 
-        <el-form-item
-          :label="$t('fields.includeElectricity')"
-          prop="includeWater"
-          class="make-booking--half mb-1"
-        >
+        <el-form-item :label="$t('fields.includeElectricity')" prop="includeWater" class="make-booking--half mb-1">
           <el-switch
             v-model="bookingForm.includeElectricity"
             inline-prompt
@@ -175,11 +139,7 @@
           />
         </el-form-item>
 
-        <el-form-item
-          :label="$t('fields.includeHousekeeping')"
-          prop="includeWater"
-          class="make-booking--half mb-1"
-        >
+        <el-form-item :label="$t('fields.includeHousekeeping')" prop="includeWater" class="make-booking--half mb-1">
           <el-switch
             v-model="bookingForm.includeHousekeeping"
             inline-prompt
@@ -214,10 +174,7 @@
         </el-form-item>
 
         <el-form-item :label="$t('depositBefore')" prop="depositBefore">
-          <el-input
-            v-model="bookingForm.depositBefore"
-            :disabled="isView || disabledEarlyDeposit"
-          />
+          <el-input v-model="bookingForm.depositBefore" :disabled="isView || disabledEarlyDeposit" />
         </el-form-item>
       </div>
 
@@ -304,12 +261,7 @@
           {{ $t(`btns.${bookId ? "cancel" : "reset"}`) }}
         </el-button>
 
-        <el-button
-          class="ml-auto title"
-          type="primary"
-          size="large"
-          @click="submitForm(ruleFormRef)"
-        >
+        <el-button class="ml-auto title" type="primary" size="large" @click="submitForm(ruleFormRef)">
           {{ $t("btns.save") }}
         </el-button>
       </el-form-item>
@@ -412,12 +364,8 @@ export default defineComponent({
         return compareAndRotateDates([bookingForm.periodFrom, bookingForm.periodTo]);
       },
       set: (dates) => {
-        bookingForm.periodFrom = dayjs(dates[0]).isValid()
-          ? dayjs(dates[0]).utc(true).format()
-          : undefined;
-        bookingForm.periodTo = dayjs(dates[1]).isValid()
-          ? dayjs(dates[1]).utc(true).format()
-          : undefined;
+        bookingForm.periodFrom = dayjs(dates[0]).isValid() ? dayjs(dates[0]).utc(true).format() : undefined;
+        bookingForm.periodTo = dayjs(dates[1]).isValid() ? dayjs(dates[1]).utc(true).format() : undefined;
 
         const comparedDates = compareAndRotateDates([bookingForm.periodFrom, bookingForm.periodTo]);
 
@@ -438,11 +386,7 @@ export default defineComponent({
       } else {
         const result = (await bookingApi.findOne("" + props.bookId)).data;
         const checkedDates = (
-          await bookingApi.checkFreeDates(
-            String(result.apartamentId[0].id),
-            result.periodFrom,
-            result.periodTo
-          )
+          await bookingApi.checkFreeDates(String(result.apartamentId[0].id), result.periodFrom, result.periodTo)
         ).data;
 
         apartaments.value = result.apartamentId; /// Set array apartments for select
@@ -468,9 +412,7 @@ export default defineComponent({
     });
 
     const getCustomers = async () => {
-      customers.value = (
-        await customersApi.findCustomers(undefined, undefined, true, undefined, 400)
-      ).data;
+      customers.value = (await customersApi.findCustomers(undefined, undefined, true, undefined, 400)).data;
     };
 
     const getApartaments = async () => {
@@ -511,9 +453,7 @@ export default defineComponent({
           loading.value = true;
           bookingForm.hasPriceAllPeriod = unref(typePrice) === Diapozon.PER_PERIOD;
           // Если клиент решил снять на месяц, то уберём цену за период
-          bookingForm.priceAllPeriod = bookingForm.hasPriceAllPeriod
-            ? bookingForm.priceAllPeriod
-            : 0;
+          bookingForm.priceAllPeriod = bookingForm.hasPriceAllPeriod ? bookingForm.priceAllPeriod : 0;
 
           const action = props.bookId
             ? (object) => bookingApi.unpdateBooking("" + props.bookId, object)

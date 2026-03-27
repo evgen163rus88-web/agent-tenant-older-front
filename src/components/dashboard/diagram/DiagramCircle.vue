@@ -20,11 +20,7 @@
     </svg>
   </div>
 
-  <div
-    v-show="isActive"
-    class="el-popper is-dark diagram-popper"
-    :style="{ top: pointY + 'px', left: pointX + 'px' }"
-  >
+  <div v-show="isActive" class="el-popper is-dark diagram-popper" :style="{ top: pointY + 'px', left: pointX + 'px' }">
     <p class="title mb-05">
       {{ titleTooltip }}
     </p>

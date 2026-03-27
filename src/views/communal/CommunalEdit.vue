@@ -15,19 +15,11 @@
             </div>
           </template>
           <div class="d-flex flex-mobile-wrap">
-            <el-form-item
-              :label="$t('fields.tariffElectric')"
-              prop="tariffElectric"
-              class="w-30-desk mr-4"
-            >
+            <el-form-item :label="$t('fields.tariffElectric')" prop="tariffElectric" class="w-30-desk mr-4">
               <el-input v-model="communalForm.tariffElectric" class="mr-1" />
             </el-form-item>
 
-            <el-form-item
-              class="w-30-desk"
-              :label="$t('fields.valueElectric')"
-              prop="valueElectric"
-            >
+            <el-form-item class="w-30-desk" :label="$t('fields.valueElectric')" prop="valueElectric">
               <el-input v-model="communalForm.valueElectric" class="mr-1" />
             </el-form-item>
           </div>
@@ -46,11 +38,7 @@
             </div>
           </template>
           <div class="d-flex flex-mobile-wrap">
-            <el-form-item
-              :label="$t('fields.tariffWater')"
-              prop="tariffWater"
-              class="w-30-desk mr-4"
-            >
+            <el-form-item :label="$t('fields.tariffWater')" prop="tariffWater" class="w-30-desk mr-4">
               <el-input v-model="communalForm.tariffWater" class="mr-1" />
             </el-form-item>
 
@@ -65,12 +53,7 @@
             {{ $t("btns.cancel") }}
           </el-button>
 
-          <el-button
-            class="ml-auto title"
-            type="primary"
-            size="large"
-            @click="submitForm(ruleFormRef)"
-          >
+          <el-button class="ml-auto title" type="primary" size="large" @click="submitForm(ruleFormRef)">
             {{ $t("btns.save") }}
           </el-button>
         </el-form-item>

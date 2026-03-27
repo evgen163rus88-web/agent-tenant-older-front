@@ -8,12 +8,7 @@
       <div class="d-flex justify-between align-center flex-mobile-wrap">
         <h1 class="mb-2">{{ $t("pages.communal") }}</h1>
 
-        <el-button
-          class="mb-2"
-          type="primary"
-          @click="$router.push({ name: RouteName.ADD_COMMUNAL })"
-          round
-        >
+        <el-button class="mb-2" type="primary" @click="$router.push({ name: RouteName.ADD_COMMUNAL })" round>
           <b-icon class="mx-1" color="bg-nav" icon="add" />
           <span>{{ $t("createNoteCommunal") }}</span>
         </el-button>
@@ -31,12 +26,7 @@
             class="mr-3 mb-1"
             @change="getApartments"
           >
-            <el-option
-              v-for="item in properties"
-              :key="item.id"
-              :label="item.label"
-              :value="item.id"
-            />
+            <el-option v-for="item in properties" :key="item.id" :label="item.label" :value="item.id" />
           </el-select>
 
           <el-select
@@ -50,12 +40,7 @@
             class="mr-3 mb-1"
             @clear="filters.apartamentId = undefined"
           >
-            <el-option
-              v-for="item in apartaments"
-              :key="item.id"
-              :label="item.name"
-              :value="item.id || ''"
-            />
+            <el-option v-for="item in apartaments" :key="item.id" :label="item.name" :value="item.id || ''" />
           </el-select>
 
           <el-select
@@ -150,8 +135,7 @@ export default defineComponent({
     });
 
     const paginator = usePaginator<CreateCommunalDto>({
-      api: (pagination) =>
-        communalApi.getCommunalData({ ...filters, ...omit(pagination, ["totalCount"]) }),
+      api: (pagination) => communalApi.getCommunalData({ ...filters, ...pagination }),
       binding: communalData,
     });
 
@@ -162,9 +146,7 @@ export default defineComponent({
     const getApartments = async () => {
       loading.value = true;
       try {
-        apartaments.value = (
-          await apartamentsApi.getApartamentsByParentId(String(property.value), {})
-        ).data.flat();
+        apartaments.value = (await apartamentsApi.getApartamentsByParentId(String(property.value), {})).data.flat();
 
         filters.apartamentId = undefined;
       } finally {
@@ -180,9 +162,7 @@ export default defineComponent({
         await getApartments();
       }
 
-      customers.value = (
-        await customersApi.findCustomers(undefined, undefined, true, undefined, 400)
-      ).data;
+      customers.value = (await customersApi.findCustomers(undefined, undefined, true, undefined, 400)).data;
     });
 
     onMounted(async () => {

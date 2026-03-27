@@ -48,9 +48,7 @@ export function useBookingRules(bookingForm) {
       },
     ],
 
-    apartamentId: [
-      { required: true, message: i18n.global.t("chooseAccommodation"), trigger: "blur" },
-    ],
+    apartamentId: [{ required: true, message: i18n.global.t("chooseAccommodation"), trigger: "blur" }],
     customerId: [{ required: true, message: i18n.global.t("chooseClient"), trigger: "blur" }],
 
     pledgeCurrency: [{ validator: validateDeposit, trigger: "blur" }],

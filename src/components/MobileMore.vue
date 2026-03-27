@@ -1,10 +1,7 @@
 <template>
   <el-descriptions direction="vertical" :column="1" border>
     <template v-for="(info, i) of labels" :key="`data-${i}`">
-      <el-descriptions-item
-        v-if="mobileMore[info.prop] && String(mobileMore[info.prop]).length"
-        :label="info.label"
-      >
+      <el-descriptions-item v-if="mobileMore[info.prop] && String(mobileMore[info.prop]).length" :label="info.label">
         <p>{{ parser(mobileMore[info.prop]) }}</p>
       </el-descriptions-item>
     </template>
@@ -14,12 +11,7 @@
     <el-button type="primary" circle @click="$emit('edit')">
       <b-icon icon="edit" />
     </el-button>
-    <el-button
-      v-if="!onlyEdit && (isManager || isAdmin)"
-      type="danger"
-      circle
-      @click="$emit('remove')"
-    >
+    <el-button v-if="!onlyEdit && (isManager || isAdmin)" type="danger" circle @click="$emit('remove')">
       <b-icon icon="delete" />
     </el-button>
   </div>
@@ -65,10 +57,7 @@ export default defineComponent({
       const info = Object.create(null);
 
       for (const key in props.data) {
-        if (
-          Object.prototype.hasOwnProperty.call(props.data, key) &&
-          !props.mobileColumns?.includes(key)
-        ) {
+        if (Object.prototype.hasOwnProperty.call(props.data, key) && !props.mobileColumns?.includes(key)) {
           info[key] = props.data[key];
         }
       }

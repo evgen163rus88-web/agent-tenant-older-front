@@ -51,8 +51,7 @@ export default defineComponent({
     const innerValue = ref(props.expandedOnly || props.expand);
 
     const computedValue = computed(
-      () =>
-        props.expandedOnly || (props.modelValue !== undefined ? props.modelValue : innerValue.value)
+      () => props.expandedOnly || (props.modelValue !== undefined ? props.modelValue : innerValue.value)
     );
     const computedClass = computed(() => ({
       "b-collapse--expanded-only": props.expandedOnly,

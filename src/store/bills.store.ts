@@ -1,11 +1,5 @@
 import { defineStore } from "pinia";
-import {
-  CreateBillsExpenseDto,
-  SearchBillsDto,
-  expensesApi,
-  incomeApi,
-  CreateBillsIncomeDto,
-} from "@/api";
+import { CreateBillsExpenseDto, SearchBillsDto, expensesApi, incomeApi, CreateBillsIncomeDto } from "@/api";
 
 export const useBillsStore = defineStore({
   id: "bills",

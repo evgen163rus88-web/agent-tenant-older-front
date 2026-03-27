@@ -18,9 +18,7 @@ export function useCommunalRules() {
     tariffWater: [{ required: true, message: i18n.global.t("fieldRequired"), trigger: "blur" }],
     valueWater: [{ required: true, message: i18n.global.t("fieldRequired"), trigger: "blur" }],
 
-    apartamentId: [
-      { required: true, message: i18n.global.t("chooseAccommodation"), trigger: "blur" },
-    ],
+    apartamentId: [{ required: true, message: i18n.global.t("chooseAccommodation"), trigger: "blur" }],
   });
   return {
     rules,

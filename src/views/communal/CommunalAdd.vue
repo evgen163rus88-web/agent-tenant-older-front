@@ -15,21 +15,10 @@
       class="mb-2"
       @change="getApartments"
     >
-      <el-option
-        v-for="item in properties"
-        :key="item.id"
-        :label="item.label"
-        :value="item.id || ''"
-      />
+      <el-option v-for="item in properties" :key="item.id" :label="item.label" :value="item.id || ''" />
     </el-select>
 
-    <el-form
-      v-show="propertyId"
-      ref="ruleFormRef"
-      label-position="top"
-      :model="communalForm"
-      :rules="rules"
-    >
+    <el-form v-show="propertyId" ref="ruleFormRef" label-position="top" :model="communalForm" :rules="rules">
       <el-card shadow="never" class="gray-semi">
         <div class="d-flex align-center flex-mobile-wrap">
           <el-form-item :label="$t('fields.chooseApartament')" prop="apartamentId" class="mr-4">
@@ -40,23 +29,12 @@
               style="width: 250px"
               @change="checkLatest"
             >
-              <el-option
-                v-for="item in apartaments"
-                :key="item.id"
-                :label="item.name"
-                :value="item.id || ''"
-              />
+              <el-option v-for="item in apartaments" :key="item.id" :label="item.name" :value="item.id || ''" />
             </el-select>
           </el-form-item>
 
           <el-form-item :label="$t('fields.chooseClientIf')" prop="customerId">
-            <el-select
-              v-model="communalForm.customerId"
-              filterable
-              value-key="id"
-              style="width: 250px"
-              clearable
-            >
+            <el-select v-model="communalForm.customerId" filterable value-key="id" style="width: 250px" clearable>
               <el-option
                 v-for="item in customers"
                 :key="item.id"
@@ -80,19 +58,11 @@
             </div>
           </template>
           <div class="d-flex flex-mobile-wrap">
-            <el-form-item
-              :label="$t('fields.tariffElectric')"
-              prop="tariffElectric"
-              class="w-30-desk mr-4"
-            >
+            <el-form-item :label="$t('fields.tariffElectric')" prop="tariffElectric" class="w-30-desk mr-4">
               <el-input v-model="communalForm.tariffElectric" class="mr-1" />
             </el-form-item>
 
-            <el-form-item
-              class="w-30-desk"
-              :label="$t('fields.valueElectric')"
-              prop="valueElectric"
-            >
+            <el-form-item class="w-30-desk" :label="$t('fields.valueElectric')" prop="valueElectric">
               <el-input v-model="communalForm.valueElectric" class="mr-1" />
             </el-form-item>
           </div>
@@ -111,11 +81,7 @@
             </div>
           </template>
           <div class="d-flex flex-mobile-wrap">
-            <el-form-item
-              :label="$t('fields.tariffWater')"
-              prop="tariffWater"
-              class="w-30-desk mr-4"
-            >
+            <el-form-item :label="$t('fields.tariffWater')" prop="tariffWater" class="w-30-desk mr-4">
               <el-input v-model="communalForm.tariffWater" class="mr-1" />
             </el-form-item>
 
@@ -130,12 +96,7 @@
             {{ $t("btns.reset") }}
           </el-button>
 
-          <el-button
-            class="ml-auto title"
-            type="primary"
-            size="large"
-            @click="submitForm(ruleFormRef)"
-          >
+          <el-button class="ml-auto title" type="primary" size="large" @click="submitForm(ruleFormRef)">
             {{ $t("btns.save") }}
           </el-button>
         </el-form-item>
@@ -191,9 +152,7 @@ export default defineComponent({
         communalForm.apartamentId = undefined;
         latestValues.value = {};
 
-        apartaments.value = (
-          await apartamentsApi.getApartamentsByParentId(propertyId.value, {})
-        ).data.flat();
+        apartaments.value = (await apartamentsApi.getApartamentsByParentId(propertyId.value, {})).data.flat();
       } finally {
         loading.value = false;
       }
@@ -203,9 +162,7 @@ export default defineComponent({
       if (properties.value.length === 0) {
         await propertyStore.fetchProperties();
       }
-      customers.value = (
-        await customersApi.findCustomers(undefined, undefined, true, undefined, 400)
-      ).data;
+      customers.value = (await customersApi.findCustomers(undefined, undefined, true, undefined, 400)).data;
     });
 
     const resetForm = (formEl: FormInstance | undefined) => {

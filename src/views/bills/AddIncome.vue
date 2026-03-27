@@ -12,11 +12,7 @@
     </span>
   </p>
 
-  <el-card
-    class="ml-auto mr-auto income-form"
-    :class="{ 'w-half': !addFromSecurityDeposit }"
-    v-loading="loading"
-  >
+  <el-card class="ml-auto mr-auto income-form" :class="{ 'w-half': !addFromSecurityDeposit }" v-loading="loading">
     <el-form :model="incomeForm" :rules="rules" ref="ruleFormRef" label-position="left">
       <div class="d-flex flex-mobile-wrap">
         <div class="w-half">
@@ -50,17 +46,8 @@
               @change="searchClient"
               :disabled="addFromSecurityDeposit"
             >
-              <el-option-group
-                v-for="(group, j) in apartaments"
-                :key="`apart${j}`"
-                :label="group[0].parent"
-              >
-                <el-option
-                  v-for="item in group"
-                  :key="item.id"
-                  :label="item.name"
-                  :value="item.id"
-                />
+              <el-option-group v-for="(group, j) in apartaments" :key="`apart${j}`" :label="group[0].parent">
+                <el-option v-for="item in group" :key="item.id" :label="item.name" :value="item.id" />
               </el-option-group>
             </el-select>
           </el-form-item>
@@ -77,11 +64,7 @@
 
         <el-card v-if="customerCommunal.length" shadow="never" class="income-form__customer">
           <p class="title w-100 text-center mb-2">{{ $t("unpaidCustomerBills") }}</p>
-          <el-checkbox-group
-            v-model="communalsOfCustomer"
-            class="d-flex flex-column"
-            @change="setAmount"
-          >
+          <el-checkbox-group v-model="communalsOfCustomer" class="d-flex flex-column" @change="setAmount">
             <el-checkbox
               v-for="communal in customerCommunal"
               :key="communal.id"
@@ -157,9 +140,7 @@ export default defineComponent({
     const customer = ref<ResponseFromBooking>();
     const customerCommunal = ref<LatestCustomerCommunal[]>([]);
     const customerValue = computed(() =>
-      customer.value
-        ? `${customer.value.customerId[0].firstName} ${customer.value.customerId[0].lastName}`
-        : undefined
+      customer.value ? `${customer.value.customerId[0].firstName} ${customer.value.customerId[0].lastName}` : undefined
     );
     const communalsOfCustomer = ref([]);
     const requiredApartament = computed(() => {
@@ -212,12 +193,10 @@ export default defineComponent({
                 await communalApi.updateById(communalsOfCustomer.value[i], {
                   incomeId: result.id,
                   isFullyPayment: true,
-                  actualPaymentElectric: customerCommunal.value.find(
-                    (c) => c.id === communalsOfCustomer.value[i]
-                  )?.total.electricitySum,
-                  actualPaymentWater: customerCommunal.value.find(
-                    (c) => c.id === communalsOfCustomer.value[i]
-                  )?.total.waterSum,
+                  actualPaymentElectric: customerCommunal.value.find((c) => c.id === communalsOfCustomer.value[i])
+                    ?.total.electricitySum,
+                  actualPaymentWater: customerCommunal.value.find((c) => c.id === communalsOfCustomer.value[i])?.total
+                    .waterSum,
                 });
               }
             }
@@ -294,10 +273,7 @@ export default defineComponent({
 
         if (incomeForm.type === IncomeTypes.COMMUNAL) {
           customerCommunal.value = (
-            await communalApi.findByCustomer(
-              String(incomeForm.customerId),
-              String(incomeForm.apartamentId)
-            )
+            await communalApi.findByCustomer(String(incomeForm.customerId), String(incomeForm.apartamentId))
           ).data;
 
           if (customerCommunal.value.length && customerCommunal.value[0].customerId?.length === 0) {

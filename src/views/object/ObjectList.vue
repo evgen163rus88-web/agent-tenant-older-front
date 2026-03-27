@@ -102,9 +102,7 @@ export default defineComponent({
     const isMobile = computed(() => layoutsStore.isMobileScreen);
 
     const subheaderContent = computed<SubheaderContent>(() => ({
-      title: `${props.apartaments[0].parent} - (${i18n.t(
-        "typeProperty." + props.apartaments[0].type
-      )})`,
+      title: `${props.apartaments[0].parent} - (${i18n.t("typeProperty." + props.apartaments[0].type)})`,
       textPosition: "left",
     }));
 

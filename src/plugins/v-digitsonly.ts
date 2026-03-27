@@ -18,12 +18,7 @@ export const DigitsOnlyDirective: Directive = {
   },
 };
 
-function handler(
-  e: KeyboardEvent,
-  vnode: VNode,
-  input: HTMLInputElement,
-  binding?: DirectiveBinding<any>
-) {
+function handler(e: KeyboardEvent, vnode: VNode, input: HTMLInputElement, binding?: DirectiveBinding<any>) {
   const newValue = getNumCharacters((e.target as HTMLInputElement).value, binding);
   input.value = newValue;
 

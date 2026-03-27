@@ -35,13 +35,7 @@
         </el-radio-group>
       </div>
 
-      <PayBillsList
-        :key="loading"
-        :loading="loading"
-        :target="table"
-        :values="bills"
-        @refresh="search(filter)"
-      />
+      <PayBillsList :key="loading" :loading="loading" :target="table" :values="bills" @refresh="search(filter)" />
 
       <!-- <div v-show="loading" class="w-100" style="height: 200px" v-loading="loading" /> -->
 

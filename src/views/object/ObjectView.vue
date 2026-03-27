@@ -77,7 +77,10 @@ export default defineComponent({
 
     const isMobile = computed(() => layoutsStore.isMobileScreen);
     const page = usePage();
-    const filters = shallowRef<QueryApartamentDto & { property?: number; statuses?: [] }>({});
+    const filters = shallowRef<QueryApartamentDto & { property?: number; statuses?: [] }>({
+      property: undefined,
+      statuses: [],
+    });
 
     page.load(async () => {
       await propertyStore.fetchProperties();
@@ -94,14 +97,16 @@ export default defineComponent({
     };
 
     const changeFilter = debounce(async (localFilter) => {
-      filters.value = localFilter;
+      if (localFilter) {
+        filters.value = localFilter;
+      }
       loading.value = true;
 
       try {
         apartaments.value = (
           await apartamentsApi.getApartamentsByParentId(String(unref(filters)?.property || "all"), {
             ...omit(unref(filters), ["bookingStatuses", "property"]),
-            bookingStatuses: unref(filters).statuses?.length ? unref(filters).statuses : undefined,
+            bookingStatuses: unref(filters)?.statuses?.length ? unref(filters).statuses : undefined,
           })
         ).data;
 

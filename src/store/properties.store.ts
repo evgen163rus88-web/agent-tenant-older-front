@@ -1,35 +1,45 @@
 import { defineStore } from "pinia";
+import { computed, ref } from "vue";
 import { propertyApi, CreatePropertyDto } from "@/api";
-import { useI18n } from "@/plugins";
+import i18n from "@/plugins/i18n";
 
-export const usePropertiesStore = defineStore({
-  id: "properties",
-  state: () => ({
-    properties: [] as CreatePropertyDto[],
-    currentParentId: undefined as number | undefined,
-  }),
-  getters: {
-    getPropertiesForSelect: (state) => {
-      const i18n = useI18n();
-      return state.properties.map((prop) => {
-        const buildType = i18n.t(`typeProperty.${prop.type}`);
+export const usePropertiesStore = defineStore("properties", () => {
+  const properties = ref<CreatePropertyDto[]>([]);
+  const currentParentId = ref<number | undefined>(undefined);
 
-        return {
-          id: prop.id,
-          label: `${prop.name} (${buildType})`,
-        };
-      });
-    },
-    getCurrentParentId: (state) => state.currentParentId,
-    getCurrentParentType: (state) => (id) => state.properties.find((prop) => prop.id === id)?.type,
-  },
-  actions: {
-    async fetchProperties() {
-      this.properties = (await propertyApi.getAllProperties()).data;
-    },
-    clearAll() {
-      this.properties = [];
-      this.currentParentId = undefined;
-    },
-  },
+  const getPropertiesForSelect = computed(() => {
+    return properties.value.map((prop) => {
+      const buildType = i18n.global.t(`typeProperty.${prop.type}`);
+
+      return {
+        id: prop.id,
+        label: `${prop.name} (${buildType})`,
+      };
+    });
+  });
+
+  const getCurrentParentId = computed(() => currentParentId.value);
+
+  const getCurrentParentType = (id: number) => {
+    return properties.value.find((prop) => prop.id === id)?.type;
+  };
+
+  async function fetchProperties() {
+    properties.value = (await propertyApi.getAllProperties()).data;
+  }
+
+  function clearAll() {
+    properties.value = [];
+    currentParentId.value = undefined;
+  }
+
+  return {
+    properties,
+    currentParentId,
+    getPropertiesForSelect,
+    getCurrentParentId,
+    getCurrentParentType,
+    fetchProperties,
+    clearAll,
+  };
 });

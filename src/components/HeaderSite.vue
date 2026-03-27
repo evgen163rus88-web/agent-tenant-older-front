@@ -5,8 +5,8 @@
     </label>
 
     <h2>
-      Agent
-      <span class="blue--text">Tenant</span>
+      Real
+      <span class="blue--text">Estate</span>
     </h2>
     <HeaderMenu />
   </header>
