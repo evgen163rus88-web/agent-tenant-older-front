@@ -13,10 +13,7 @@
           {{ $t("btns.more") }}
         </el-dropdown-item>
 
-        <el-dropdown-item
-          v-if="line.currentStatus !== StatusEnum.CHECK_OUT"
-          :command="`edit-${line.id}`"
-        >
+        <el-dropdown-item v-if="line.currentStatus !== StatusEnum.CHECK_OUT" :command="`edit-${line.id}`">
           {{ $t("btns.edit") }}
         </el-dropdown-item>
 
@@ -34,11 +31,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, unref } from "vue";
 import { useI18n } from "@/plugins";
-import {
-  FoundBookingData,
-  FoundBookingDataCurrentStatusEnum as StatusEnum,
-  bookingApi,
-} from "@/api";
+import { FoundBookingData, FoundBookingDataCurrentStatusEnum as StatusEnum, bookingApi } from "@/api";
 import { RouteName } from "@/router/router-utils";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { useRouter } from "vue-router";

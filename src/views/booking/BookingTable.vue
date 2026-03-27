@@ -52,11 +52,7 @@
         </template>
       </div>
 
-      <div
-        v-if="arrDays.mounths.length > 3"
-        class="d-grid booking-area__months-head"
-        :style="`${styleGridColumns};`"
-      >
+      <div v-if="arrDays.mounths.length > 3" class="d-grid booking-area__months-head" :style="`${styleGridColumns};`">
         <div
           v-for="(mounth, jj) in arrDays.mounths"
           :key="`mounth-${jj}`"
@@ -69,10 +65,7 @@
         </div>
       </div>
 
-      <div
-        class="booking-area__header booking-area__header--calendar"
-        :class="{ 'w-content': countColumn > 60 }"
-      >
+      <div class="booking-area__header booking-area__header--calendar" :class="{ 'w-content': countColumn > 60 }">
         <div class="d-grid w-100" :style="`${styleGridColumns};`">
           <template v-if="countColumn">
             <div
@@ -115,10 +108,7 @@
                 class="booking-area__time-line d-flex justify-between"
                 :id="`line${line.id}`"
                 :style="diapasonBooking(line, `line${line.id}`)"
-                :class="[
-                  `${line.currentStatus?.toLowerCase()}`,
-                  `${line.currentStatus?.toLowerCase()}-t--text`,
-                ]"
+                :class="[`${line.currentStatus?.toLowerCase()}`, `${line.currentStatus?.toLowerCase()}-t--text`]"
               >
                 <div
                   v-if="line.currentStatus !== StatusEnum.CANCELED"
@@ -162,11 +152,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, unref } from "vue";
 import { useI18n } from "@/plugins";
-import {
-  ResponseFoundBookingDTO,
-  FoundBookingData,
-  FoundBookingDataCurrentStatusEnum as StatusEnum,
-} from "@/api";
+import { ResponseFoundBookingDTO, FoundBookingData, FoundBookingDataCurrentStatusEnum as StatusEnum } from "@/api";
 import { useLayoutsStore } from "@/store/layouts.store";
 import BookingDropdown from "./BookingDropdown.vue";
 
@@ -201,9 +187,7 @@ export default defineComponent({
     const isMobile = computed(() => layoutsStore.isMobileScreen);
 
     const startYear = computed(() => dayjs(props.startDay).format("YYYY"));
-    const endYear = computed(() =>
-      dayjs(props.startDay).add(unref(countColumn), "day").format("YYYY")
-    );
+    const endYear = computed(() => dayjs(props.startDay).add(unref(countColumn), "day").format("YYYY"));
 
     const arrDays = computed(() => {
       const one = 1;
@@ -244,10 +228,7 @@ export default defineComponent({
       const clientWidth = bookingTeable.value?.clientWidth;
       const w = i18n.locale.value.toLowerCase() === "ru" ? 24 : 26;
 
-      const mobileCell =
-        clientWidth && unref(arrDays).days.length < 10
-          ? clientWidth / unref(arrDays).days.length
-          : w;
+      const mobileCell = clientWidth && unref(arrDays).days.length < 10 ? clientWidth / unref(arrDays).days.length : w;
 
       return `grid-template-columns: repeat(${arrDays.value.days.length}, ${
         unref(isMobile) ? `${mobileCell.toFixed(2)}px` : `minmax(${w}px, 1fr)`
@@ -285,11 +266,9 @@ export default defineComponent({
       const isSamePeriodFromAndStartOfDay =
         dayjs(booking.periodFrom).format("L") === dayjs(startOfDay.value).format("L");
 
-      const finishDay =
-        finish >= arrDays.value.days.length ? arrDays.value.days.length : finish + 1;
+      const finishDay = finish >= arrDays.value.days.length ? arrDays.value.days.length : finish + 1;
 
-      const cellWidth =
-        bookingTeable.value?.querySelector(".booking-area__response--cell")?.clientWidth || 1;
+      const cellWidth = bookingTeable.value?.querySelector(".booking-area__response--cell")?.clientWidth || 1;
 
       // divider =======
       if (diffStart < 0 || isSamePeriodFromAndStartOfDay) {

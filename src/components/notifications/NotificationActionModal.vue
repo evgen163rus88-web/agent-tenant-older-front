@@ -112,9 +112,7 @@ export default defineComponent({
 
       if (!booking.value?.pledge || booking.value?.pledge === undefined) {
         setTimeout(() => {
-          $notice.warning(
-            i18n.t("dontForgotTakeSecurityDeposit", { where: target.apartment[0].name })
-          );
+          $notice.warning(i18n.t("dontForgotTakeSecurityDeposit", { where: target.apartment[0].name }));
         }, 2000);
       }
       await discardNotice(notice.id, loading);
@@ -141,9 +139,7 @@ export default defineComponent({
       }
 
       await cancelBooking(bookId);
-      $notice.success(
-        i18n.t(hasDeposit ? "notConfirmedCheckIn" : "notConfirmedCheckInWithoutDeposit")
-      );
+      $notice.success(i18n.t(hasDeposit ? "notConfirmedCheckIn" : "notConfirmedCheckInWithoutDeposit"));
       await discardNotice(notice.id, loading);
       emit("close");
     };

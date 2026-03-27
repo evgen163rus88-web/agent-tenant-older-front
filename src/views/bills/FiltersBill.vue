@@ -19,13 +19,7 @@
         @clear="filters.amount = undefined"
       />
 
-      <b-date-range-input
-        class="mb-1"
-        v-model="datesFilter"
-        restrictionEndDate
-        autoSetEndTime
-        :maxRange="6"
-      />
+      <b-date-range-input class="mb-1" v-model="datesFilter" restrictionEndDate autoSetEndTime :maxRange="6" />
 
       <el-select
         v-model="filters.apartamentId"
@@ -36,11 +30,7 @@
         @clear="filters.apartamentId = undefined"
         class="mb-1"
       >
-        <el-option-group
-          v-for="(group, j) in apartaments"
-          :key="`apart${j}`"
-          :label="group[0].parent"
-        >
+        <el-option-group v-for="(group, j) in apartaments" :key="`apart${j}`" :label="group[0].parent">
           <el-option v-for="item in group" :key="item.id" :label="item.name" :value="item.id" />
         </el-option-group>
       </el-select>

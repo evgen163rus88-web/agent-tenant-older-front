@@ -15,13 +15,7 @@
         {{ $t("btns.cancel") }}
       </el-button>
 
-      <el-button
-        class="ml-auto title"
-        type="primary"
-        size="large"
-        @click="submitForm"
-        :disabled="isDisabled"
-      >
+      <el-button class="ml-auto title" type="primary" size="large" @click="submitForm" :disabled="isDisabled">
         {{ $t("btns.save") }}
       </el-button>
     </el-form-item>
@@ -47,9 +41,7 @@ export default defineComponent({
       isActive: true,
     });
 
-    const isDisabled = computed(
-      () => clientForm.firstName.length < 2 || clientForm.lastName.length < 2
-    );
+    const isDisabled = computed(() => clientForm.firstName.length < 2 || clientForm.lastName.length < 2);
 
     const submitForm = async () => {
       loading.value = true;

@@ -4,21 +4,13 @@
       <DashboardFilter v-if="isAdmin" @filter="getData" />
 
       <el-row class="my-2">
-        <el-card
-          v-if="isShowCard"
-          shadow="hover"
-          class="mb-2 mr-3 mw-30-desk"
-          style="min-width: 15%"
-        >
+        <el-card v-if="isShowCard" shadow="hover" class="mb-2 mr-3 mw-30-desk" style="min-width: 15%">
           <template #header>
             <p class="headline-3--text fwb">
               {{ $t("securityDeposits") }}
             </p>
           </template>
-          <template
-            v-for="securityDep in summary?.securityDeposits"
-            :key="securityDep.pledgeCurrency"
-          >
+          <template v-for="securityDep in summary?.securityDeposits" :key="securityDep.pledgeCurrency">
             <DashedContainer
               v-if="securityDep._sum.pledge"
               :title="getCurrencyName(securityDep.pledgeCurrency)"
@@ -30,12 +22,7 @@
           </template>
         </el-card>
 
-        <el-card
-          v-if="isShowCard"
-          shadow="hover"
-          class="mb-2 mr-3 mw-30-desk"
-          style="min-width: 15%"
-        >
+        <el-card v-if="isShowCard" shadow="hover" class="mb-2 mr-3 mw-30-desk" style="min-width: 15%">
           <template #header>
             <p class="headline-3--text fwb">{{ $t("earlyDeposits") }}</p>
           </template>
@@ -44,9 +31,7 @@
             <DashedContainer
               v-if="earlyDep._sum.depositBefore"
               :title="getCurrencyName(earlyDep.depositCurrency)"
-              :text="`${earlyDep._sum.depositBefore} ${getCurrencySymbol(
-                earlyDep.depositCurrency
-              )}`"
+              :text="`${earlyDep._sum.depositBefore} ${getCurrencySymbol(earlyDep.depositCurrency)}`"
               textColor="bg-light"
               class="mb-2"
               bold
@@ -56,9 +41,7 @@
 
         <el-card v-if="isAdmin" shadow="hover" class="mb-2 mr-3 mw-30-desk" v-loading="loading">
           <template #header>
-            <p class="headline-3--text fwb">
-              {{ $t("fields.incomes") }} {{ $t(`btns.${periodTitle}`).toLowerCase() }}
-            </p>
+            <p class="headline-3--text fwb">{{ $t("fields.incomes") }} {{ $t(`btns.${periodTitle}`).toLowerCase() }}</p>
           </template>
 
           <div class="d-flex align-center justify-between">
@@ -81,11 +64,7 @@
           </template>
 
           <div class="d-flex align-center justify-between">
-            <DiagramCircle
-              :dataDasharray="diagram"
-              classCircleBack="gray-semi--text"
-              :size="[150, 150]"
-            />
+            <DiagramCircle :dataDasharray="diagram" classCircleBack="gray-semi--text" :size="[150, 150]" />
 
             <ul class="ml-1">
               <li v-for="d in diagram" :key="d.percent" class="d-flex align-center mb-1">
@@ -121,9 +100,7 @@
       <el-row v-if="isAdmin">
         <el-card shadow="never" class="mb-2">
           <template #header>
-            <p class="headline-3--text fwb">
-              {{ $t("incomExpenses") }} {{ $t(`btns.${periodTitle}`).toLowerCase() }}
-            </p>
+            <p class="headline-3--text fwb">{{ $t("incomExpenses") }} {{ $t(`btns.${periodTitle}`).toLowerCase() }}</p>
           </template>
 
           <BarChart :charts="chartData" />
@@ -203,14 +180,10 @@ export default defineComponent({
           labelsChart.value = [...(response?.map((obj) => `month.${+obj.period - 1}`) || "")];
           break;
         case "week":
-          labelsChart.value = [
-            ...(response?.map((obj) => dayjs(obj.sourceDate).format("dddd")) || ""),
-          ];
+          labelsChart.value = [...(response?.map((obj) => dayjs(obj.sourceDate).format("dddd")) || "")];
           break;
         case "month":
-          labelsChart.value = [
-            ...(response?.map((obj) => dayjs(obj.sourceDate).format("LL")) || ""),
-          ];
+          labelsChart.value = [...(response?.map((obj) => dayjs(obj.sourceDate).format("LL")) || "")];
           break;
         default:
           labelsChart.value = [""];

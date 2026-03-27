@@ -19,15 +19,7 @@
   </vue-tel-input>
 </template>
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  ref,
-  watch,
-  onMounted,
-  onBeforeUnmount,
-  ComponentPublicInstance,
-} from "vue";
+import { computed, defineComponent, ref, watch, onMounted, onBeforeUnmount, ComponentPublicInstance } from "vue";
 import { queryInputElementInside, phone, omit, debounce, after } from "@/helpers/index";
 import { VueTelInput } from "vue3-tel-input";
 
@@ -83,9 +75,7 @@ export default defineComponent({
       if (isNeedChangePhone.value) {
         const regex = new RegExp(/^[7|8|375|66]/, "i");
         let nationalNumber = phoneObj.nationalNumber ?? phoneObj.formatted;
-        nationalNumber = nationalNumber
-          .replace(/^[+][\d][\s]?[+]?[\d]?[\s]?/i, "")
-          .replace(regex, "");
+        nationalNumber = nationalNumber.replace(/^[+][\d][\s]?[+]?[\d]?[\s]?/i, "").replace(regex, "");
 
         phoneFormatted = phone(`${phoneObj.country.dialCode}${nationalNumber}`);
       }

@@ -18,29 +18,11 @@ export default defineComponent({
     },
     color: {
       type: String as PropType<
-        | "default"
-        | "white"
-        | "gray"
-        | "gray-semi"
-        | "warning"
-        | "success"
-        | "black"
-        | "error"
-        | "blue-light"
+        "default" | "white" | "gray" | "gray-semi" | "warning" | "success" | "black" | "error" | "blue-light"
       >,
       default: "default",
       validator: (v: string) =>
-        [
-          "default",
-          "white",
-          "gray",
-          "gray-semi",
-          "warning",
-          "success",
-          "black",
-          "error",
-          "blue-light",
-        ].includes(v),
+        ["default", "white", "gray", "gray-semi", "warning", "success", "black", "error", "blue-light"].includes(v),
     },
     plain: {
       type: Boolean,

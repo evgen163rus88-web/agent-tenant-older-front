@@ -69,11 +69,7 @@ export default defineComponent({
     const noticePayment = computed(
       () =>
         props.notifications
-          .filter(
-            (note) =>
-              note.name === NoticeEnum.PAY_DAY &&
-              parseTarget(note.target).pd === new Date().getUTCDate()
-          )
+          .filter((note) => note.name === NoticeEnum.PAY_DAY && parseTarget(note.target).pd === new Date().getUTCDate())
           .map((note) => {
             return {
               ...omit(note, ["target"]),

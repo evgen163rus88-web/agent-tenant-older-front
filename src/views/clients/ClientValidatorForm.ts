@@ -7,12 +7,8 @@ export function useClientRules() {
   const isValidSecondaryPhone = ref(true);
 
   const rules = reactive<FormRules>({
-    firstName: [
-      { required: true, message: i18n.global.t("clientFormValid.enterFirstName"), trigger: "blur" },
-    ],
-    lastName: [
-      { required: true, message: i18n.global.t("clientFormValid.enterLastName"), trigger: "blur" },
-    ],
+    firstName: [{ required: true, message: i18n.global.t("clientFormValid.enterFirstName"), trigger: "blur" }],
+    lastName: [{ required: true, message: i18n.global.t("clientFormValid.enterLastName"), trigger: "blur" }],
     passportNumber: [{ required: true, message: i18n.global.t("fieldRequired"), trigger: "blur" }],
     email: [
       {

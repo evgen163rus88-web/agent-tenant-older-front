@@ -52,8 +52,7 @@ export const useCurrencyStore = defineStore({
         name: i18n.t(cur.name),
       })) as Currencies[];
     },
-    getSymbolCurrency: (state) => (ticker) =>
-      state.currencies.find((c) => c.ticker === ticker)?.symbol,
+    getSymbolCurrency: (state) => (ticker) => state.currencies.find((c) => c.ticker === ticker)?.symbol,
     getNameCurrency: (state) => (ticker) => {
       const i18n = useI18n();
       return i18n.t(state.currencies.find((c) => c.ticker === ticker)?.name || "");

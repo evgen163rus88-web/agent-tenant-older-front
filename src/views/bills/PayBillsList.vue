@@ -111,9 +111,7 @@ export default defineComponent({
           prop: "amount",
           label: i18n.t("fields.amount"),
           classNameHeader: unref(isMobile) ? "self-end pr-1" : "self-center",
-          className: unref(isMobile)
-            ? "align-self-center self-end pr-1"
-            : "align-self-center self-center",
+          className: unref(isMobile) ? "align-self-center self-end pr-1" : "align-self-center self-center",
           width: unref(isMobile) ? "20%" : "0.8fr",
         },
         {

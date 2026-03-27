@@ -106,10 +106,7 @@
 import { defineComponent, computed, reactive, onMounted } from "vue";
 import { useI18n } from "@/plugins";
 import { usePropertiesStore } from "@/store/properties.store";
-import {
-  CreateApartamentDtoBookingStatusEnum as BookingStatuses,
-  CreateApartamentDtoTypeEnum,
-} from "@/api";
+import { CreateApartamentDtoBookingStatusEnum as BookingStatuses, CreateApartamentDtoTypeEnum } from "@/api";
 import { OptionType } from "element-plus/lib/components/select-v2/src/select.types";
 import { debounce } from "@/helpers";
 

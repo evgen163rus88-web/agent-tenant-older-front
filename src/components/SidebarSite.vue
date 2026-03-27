@@ -127,19 +127,11 @@ export default defineComponent({
   }
 
   &.router-link-active {
-    background: linear-gradient(
-      260.9deg,
-      color(primary-semi-light) -13.01%,
-      color(bg-dark) 119.64%
-    );
+    background: linear-gradient(260.9deg, color(primary-semi-light) -13.01%, color(bg-dark) 119.64%);
     color: color(white);
 
     &:active {
-      background: linear-gradient(
-        260.9deg,
-        color(primary-semi-light) -13.01%,
-        color(bg-dark) 119.64%
-      );
+      background: linear-gradient(260.9deg, color(primary-semi-light) -13.01%, color(bg-dark) 119.64%);
     }
   }
 

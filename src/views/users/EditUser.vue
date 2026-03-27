@@ -52,12 +52,7 @@
           :label="$t('users.login')"
           class="w-half mr-2"
         >
-          <el-input
-            :placeholder="$t('users.login')"
-            v-model="user.login"
-            autocomplete="off"
-            :disabled="userId > 0"
-          />
+          <el-input :placeholder="$t('users.login')" v-model="user.login" autocomplete="off" :disabled="userId > 0" />
         </el-form-item>
 
         <el-form-item
@@ -79,10 +74,7 @@
       <div class="d-flex align-center">
         <p class="title font-weight-bold mr-3">{{ $t("users.account") }}:</p>
 
-        <p
-          class="label font-weight-bold mr-6"
-          :class="`${user.isActive ? 'primary' : 'error'}--text`"
-        >
+        <p class="label font-weight-bold mr-6" :class="`${user.isActive ? 'primary' : 'error'}--text`">
           {{ textActivate }}
         </p>
 
@@ -101,12 +93,7 @@
     </el-form>
   </el-card>
 
-  <el-dialog
-    v-model="showModal"
-    :width="isMobile ? '100%' : '70%'"
-    :title="$t('moreAboutRoles')"
-    destroy-on-close
-  >
+  <el-dialog v-model="showModal" :width="isMobile ? '100%' : '70%'" :title="$t('moreAboutRoles')" destroy-on-close>
     <AboutRoles :isMobile="isMobile" />
   </el-dialog>
 </template>
@@ -144,9 +131,7 @@ export default defineComponent({
     const showModal = ref(false);
     const { userId, isComapny } = toRefs(props);
 
-    const textActivate = computed(() =>
-      user.isActive ? i18n.t("users.active") : i18n.t("users.unActive")
-    );
+    const textActivate = computed(() => (user.isActive ? i18n.t("users.active") : i18n.t("users.unActive")));
     const isMobile = computed(() => layoutsStore.isMobileScreen);
 
     const user = reactive({

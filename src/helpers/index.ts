@@ -4,12 +4,7 @@ import { parsePhoneNumberFromString, NumberFormat } from "libphonenumber-js";
 type CompareInput = string | Date | undefined;
 
 export const isEmpty = (target: any): boolean => {
-  return (
-    target !== null &&
-    typeof target === "object" &&
-    !Array.isArray(target) &&
-    Object.keys(target).length === 0
-  );
+  return target !== null && typeof target === "object" && !Array.isArray(target) && Object.keys(target).length === 0;
 };
 
 export function getNumCharacters(v: any, binding?: DirectiveBinding) {
@@ -25,9 +20,7 @@ export function getNumCharacters(v: any, binding?: DirectiveBinding) {
 
   const regex = new RegExp(binding?.arg === "phone" ? /([+]?[\d\s-]+)/ : /[^\d]/, "gi");
 
-  return binding?.arg === "phone"
-    ? String(v).match(regex)?.join("").trim() || ""
-    : String(v).replace(regex, "").trim();
+  return binding?.arg === "phone" ? String(v).match(regex)?.join("").trim() || "" : String(v).replace(regex, "").trim();
 }
 
 export function queryInputElementInside(el: any): HTMLInputElement {
@@ -53,15 +46,13 @@ export function createObjectURL(file: Blob | MediaSource) {
   }
 }
 
-export function omit(obj: object, keys: string[]) {
-  const keysToRemove = new Set(keys.flat()); // flatten the props, and convert to a Set
+export const omit = <T, K extends keyof T>(obj: T, props: K[]): Omit<T, K> => {
+  obj = { ...obj };
 
-  return Object.fromEntries(
-    // convert the entries back to object
-    Object.entries(obj) // convert the object to entries
-      .filter(([k]) => !keysToRemove.has(k)) // remove entries with keys that exist in the Set
-  );
-}
+  props.forEach((prop) => delete obj[prop]);
+
+  return obj;
+};
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function debounce(func: Function, timeout = 333) {

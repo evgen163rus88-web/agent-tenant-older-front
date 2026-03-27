@@ -65,9 +65,7 @@ export default defineComponent({
     const latestFilters = ref<FiltersCustomer>({
       isActive: true,
     });
-    const titleModal = computed(() =>
-      i18n.t(showEdit.value ? "editDataCustomer" : "btns.createNewClient")
-    );
+    const titleModal = computed(() => i18n.t(showEdit.value ? "editDataCustomer" : "btns.createNewClient"));
 
     const isMobile = computed(() => layoutsStore.isMobileScreen);
 

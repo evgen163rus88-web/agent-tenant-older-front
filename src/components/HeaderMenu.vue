@@ -18,12 +18,7 @@
     </p>
 
     <ul class="d-flex">
-      <li
-        class="ml-2 d-flex align-center justify-center"
-        role="button"
-        :title="$t('exit')"
-        @click="signOut"
-      >
+      <li class="ml-2 d-flex align-center justify-center" role="button" :title="$t('exit')" @click="signOut">
         <b-icon icon="exit" size="large" />
       </li>
     </ul>
@@ -140,8 +135,7 @@ export default defineComponent({
 
       showPayDayConfirmModal.value = notification.value.some(
         (note) =>
-          note.name === CreateNotificationDtoNameEnum.PAY_DAY &&
-          parseTarget(note.target).pd === new Date().getUTCDate()
+          note.name === CreateNotificationDtoNameEnum.PAY_DAY && parseTarget(note.target).pd === new Date().getUTCDate()
       );
 
       showConfirmModal.value = notification.value.some(

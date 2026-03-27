@@ -3,14 +3,7 @@
     <el-button type="primary" circle size="large" class="mb-3" @click="dialogVisible = true">
       <b-icon>edit</b-icon>
     </el-button>
-    <el-button
-      v-if="isAdmin"
-      type="danger"
-      size="large"
-      class="danger-obj-btn"
-      @click="$emit('remove')"
-      circle
-    >
+    <el-button v-if="isAdmin" type="danger" size="large" class="danger-obj-btn" @click="$emit('remove')" circle>
       <el-icon><Delete /></el-icon>
     </el-button>
   </div>

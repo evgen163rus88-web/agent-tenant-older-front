@@ -64,15 +64,10 @@ export default defineComponent({
 
       if (!isEmpty(props.forceRangeRestriction) && maxRange) {
         return {
-          start: props.forceRangeRestriction.start
-            ? dayjs(props.forceRangeRestriction.start).toDate().getTime()
-            : 0,
+          start: props.forceRangeRestriction.start ? dayjs(props.forceRangeRestriction.start).toDate().getTime() : 0,
           end: props.forceRangeRestriction.end
             ? dayjs(props.forceRangeRestriction.end).toDate().getTime()
-            : dayjs(props.forceRangeRestriction.start)
-                .add(maxRange, maxRangeUnit)
-                .toDate()
-                .getTime(),
+            : dayjs(props.forceRangeRestriction.start).add(maxRange, maxRangeUnit).toDate().getTime(),
         };
       }
 
@@ -89,8 +84,7 @@ export default defineComponent({
       }
 
       return {
-        start:
-          dateTo && maxRange ? endDayjs.subtract(maxRange, maxRangeUnit).toDate().getTime() : 0,
+        start: dateTo && maxRange ? endDayjs.subtract(maxRange, maxRangeUnit).toDate().getTime() : 0,
         end: endDayjs.toDate().getTime(),
       };
     });
@@ -104,8 +98,7 @@ export default defineComponent({
         return forceRange.value;
       }
 
-      const maxEnd =
-        maxRange && dateFrom ? startDayjs.add(maxRange, maxRangeUnit).toDate().getTime() : now;
+      const maxEnd = maxRange && dateFrom ? startDayjs.add(maxRange, maxRangeUnit).toDate().getTime() : now;
       return {
         start: dateFrom ? startDayjs.startOf("day").toDate().getTime() : 0,
         end: maxEnd > now && props.restrictionEndDate ? now : maxEnd,

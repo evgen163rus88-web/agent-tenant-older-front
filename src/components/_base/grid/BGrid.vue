@@ -36,12 +36,7 @@
       v-bind="getLineAttrs(item, i)"
     >
       <template #[options.slot]>
-        <div
-          v-for="(header, j) in headers"
-          :key="`innerItem${j}`"
-          class="b-grid--cell"
-          :class="header.className"
-        >
+        <div v-for="(header, j) in headers" :key="`innerItem${j}`" class="b-grid--cell" :class="header.className">
           <slot :name="`cell-${header.prop}`" :item="item" :index="i">
             {{ parseString(item[header.prop], header, item) }}
           </slot>
@@ -145,9 +140,7 @@ export default defineComponent({
     const parseDate = (date, format) => dayjs(date).format(`${format}`);
 
     const switchLines = ({ index: currentIndex, payload }) => {
-      accordionModel.value = accordionModel.value.map((val, index) =>
-        currentIndex === index ? payload : false
-      );
+      accordionModel.value = accordionModel.value.map((val, index) => (currentIndex === index ? payload : false));
     };
 
     const getLineListeners = (item: DataGridItem, index: number) => {

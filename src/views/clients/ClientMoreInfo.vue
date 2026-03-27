@@ -71,11 +71,7 @@
 
             <div class="d-flex align-center mb-2">
               <p class="mr-1 fwb">{{ $t("fields.currentStatusOfApartament") }}:</p>
-              <el-tag
-                :type="statusCode(book.apartamentId[0].bookingStatus)"
-                class="mx-1"
-                effect="dark"
-              >
+              <el-tag :type="statusCode(book.apartamentId[0].bookingStatus)" class="mx-1" effect="dark">
                 {{ $t(`bookingStatuses.${book.apartamentId[0].bookingStatus}`) }}
               </el-tag>
             </div>
@@ -84,24 +80,14 @@
       </el-collapse>
     </el-card>
 
-    <el-button
-      type="primary"
-      circle
-      size="large"
-      class="ml-auto mt-2"
-      @click="$emit('edit', client)"
-    >
+    <el-button type="primary" circle size="large" class="ml-auto mt-2" @click="$emit('edit', client)">
       <b-icon>edit</b-icon>
     </el-button>
   </el-card>
 </template>
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from "vue";
-import {
-  FoundCustomersDTO,
-  basePath,
-  CreateApartamentDtoBookingStatusEnum as BookingStatus,
-} from "@/api";
+import { FoundCustomersDTO, basePath, CreateApartamentDtoBookingStatusEnum as BookingStatus } from "@/api";
 import { useCurrencyStore } from "@/store/currency.store";
 import ClientMoreMobile from "./ClientMoreMobile.vue";
 

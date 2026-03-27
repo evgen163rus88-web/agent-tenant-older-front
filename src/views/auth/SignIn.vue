@@ -23,13 +23,7 @@
             </div>
           </template>
           <el-form-item :label="$t('users.loginOrEmail')">
-            <el-input
-              class="mb-4"
-              :placeholder="$t('users.loginOrEmail')"
-              v-model="login"
-              ref="loginRef"
-              autofocus
-            />
+            <el-input class="mb-4" :placeholder="$t('users.loginOrEmail')" v-model="login" ref="loginRef" autofocus />
           </el-form-item>
 
           <el-form-item :label="$t('users.password')">

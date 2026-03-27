@@ -81,9 +81,7 @@ export default defineComponent({
         emit(
           "update:pricePerMounth",
           priceAllPeriodModel.value
-            ? ((priceToNumber(priceAllPeriodModel.value) / Math.abs(props.countDays)) * 30).toFixed(
-                2
-              )
+            ? ((priceToNumber(priceAllPeriodModel.value) / Math.abs(props.countDays)) * 30).toFixed(2)
             : undefined
         );
       }

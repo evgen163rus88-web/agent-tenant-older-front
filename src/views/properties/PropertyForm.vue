@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, defineEmits, defineProps, PropType } from "vue";
+import { reactive, ref, defineEmits, defineProps, PropType, unref } from "vue";
 import type { FormInstance } from "element-plus";
 import { propertyApi, UpdatePropertyDto, CreatePropertyDto, CreateApartamentDtoTypeEnum as TypeProperty } from "@/api";
 import { ElMessage } from "element-plus";
@@ -61,8 +61,8 @@ const validateName = (rule: any, value: any, callback: any) => {
     callback(new Error(i18n.t("enterName")));
   } else {
     if (propertyForm.name !== "") {
-      if (!ruleFormRef.value) return;
-      ruleFormRef.value.validateField("name", () => null);
+      if (!unref(ruleFormRef)) return;
+      // ruleFormRef.value.validateField("name", () => null);
     }
     callback();
   }

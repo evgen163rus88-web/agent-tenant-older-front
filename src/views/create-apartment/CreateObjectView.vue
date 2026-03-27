@@ -7,13 +7,7 @@
   <el-divider v-if="!isEdit" />
 
   <el-card class="apartment-form--card" v-loading="loading">
-    <el-form
-      ref="ruleFormRef"
-      label-position="top"
-      :model="apartamentForm"
-      :rules="rules"
-      status-icon
-    >
+    <el-form ref="ruleFormRef" label-position="top" :model="apartamentForm" :rules="rules" status-icon>
       <div class="d-flex flex-wrap">
         <el-form-item :label="$t('building')" prop="propertyId">
           <el-select
@@ -25,12 +19,7 @@
             :size="isMobile ? 'default' : 'large'"
             class="mr-8"
           >
-            <el-option
-              v-for="item in properties"
-              :key="item.id"
-              :label="item.label"
-              :value="item.id!"
-            />
+            <el-option v-for="item in properties" :key="item.id" :label="item.label" :value="item.id!" />
           </el-select>
         </el-form-item>
 
@@ -47,11 +36,7 @@
       </div>
 
       <el-form-item :label="$t('listObj.name')" prop="name">
-        <el-input
-          :size="isMobile ? 'default' : 'large'"
-          v-model="apartamentForm.name"
-          autocomplete="off"
-        />
+        <el-input :size="isMobile ? 'default' : 'large'" v-model="apartamentForm.name" autocomplete="off" />
       </el-form-item>
 
       <div class="d-flex apartment-form flex-mobile-wrap">
@@ -106,19 +91,11 @@
 
       <div class="d-flex flex-mobile-wrap">
         <el-form-item :label="$t('pricerPerMonthRent')" prop="pricePerMounth" class="mr-6">
-          <el-input
-            :size="isMobile ? 'default' : 'large'"
-            v-model="apartamentForm.pricePerMounth"
-            autocomplete="off"
-          />
+          <el-input :size="isMobile ? 'default' : 'large'" v-model="apartamentForm.pricePerMounth" autocomplete="off" />
         </el-form-item>
 
         <el-form-item :label="$t('pricePerDayRent')" prop="pricePerDay" class="mr-6">
-          <el-input
-            :size="isMobile ? 'default' : 'large'"
-            v-model="apartamentForm.pricePerDay"
-            autocomplete="off"
-          />
+          <el-input :size="isMobile ? 'default' : 'large'" v-model="apartamentForm.pricePerDay" autocomplete="off" />
         </el-form-item>
 
         <el-form-item :label="$t('fields.currency')" prop="currency">
@@ -155,23 +132,14 @@
       </el-form-item>
 
       <el-form-item class="flex-mobile-wrap w-100" :label="$t('noticeByObj')" prop="note">
-        <div
-          class="d-flex align-center apartment-form--note"
-          v-for="(_, index) in apartamentForm.note"
-          :key="index"
-        >
+        <div class="d-flex align-center apartment-form--note" v-for="(_, index) in apartamentForm.note" :key="index">
           <el-input
             v-model="apartamentForm.note[index]"
             :size="isMobile ? 'default' : 'large'"
             clearable
             autocomplete="off"
           />
-          <el-button
-            class="ml-2"
-            text
-            :disabled="apartamentForm.note.length < 2"
-            @click="changeNotes(index)"
-          >
+          <el-button class="ml-2" text :disabled="apartamentForm.note.length < 2" @click="changeNotes(index)">
             <b-icon>minus</b-icon>
           </el-button>
           <el-button class="ml-2" text @click="changeNotes()">
@@ -205,11 +173,7 @@
       <el-divider />
 
       <el-form-item class="footer-btns-form">
-        <el-button
-          class="title"
-          :size="isMobile ? 'default' : 'large'"
-          @click="resetForm(ruleFormRef, !isEdit)"
-        >
+        <el-button class="title" :size="isMobile ? 'default' : 'large'" @click="resetForm(ruleFormRef, !isEdit)">
           {{ $t(`btns.${isEdit ? "cancel" : "reset"}`) }}
         </el-button>
 
@@ -259,9 +223,7 @@ export default defineComponent({
   components: { Plus },
   props: {
     apartment: {
-      type: Object as PropType<
-        Partial<Omit<FoundApartamentDTO, "bookingId" | "createdAt" | "updatedAt">>
-      >,
+      type: Object as PropType<Partial<Omit<FoundApartamentDTO, "bookingId" | "createdAt" | "updatedAt">>>,
     },
     isEdit: Boolean,
   },
@@ -283,7 +245,7 @@ export default defineComponent({
     const isMobile = computed(() => layoutsStore.isMobileScreen);
     const properties = computed(() => propertyStore.getPropertiesForSelect);
     const propertyType = computed(() =>
-      propertyStore.getCurrentParentType(apartamentForm.propertyId)
+      apartamentForm.propertyId ? propertyStore.getCurrentParentType(apartamentForm.propertyId) : ""
     );
     const currensies = computed(() => currencyStore.getCurrencies);
 
@@ -370,15 +332,11 @@ export default defineComponent({
                     return BookingStatusEdit.FREE;
                   }
 
-                  return apartamentForm.statusAvailable === false
-                    ? BookingStatusEdit.NOT_AVAILABLE
-                    : undefined;
+                  return apartamentForm.statusAvailable === false ? BookingStatusEdit.NOT_AVAILABLE : undefined;
                 })(),
-                ...(omit(apartamentForm, [
-                  "id",
-                  "propertyId",
-                  "statusAvailable",
-                ]) as UpdateApartamentDto),
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                ...(omit(apartamentForm, ["id", "propertyId", "statusAvailable"]) as UpdateApartamentDto),
               });
             } else {
               await apartamentsApi.createApartament({
@@ -394,13 +352,10 @@ export default defineComponent({
                 pricePerMounth: parseFloat("" + apartamentForm.pricePerMounth?.replace(" ", "")),
                 pricePerDay: parseFloat("" + apartamentForm.pricePerDay?.replace(" ", "")),
                 currency: apartamentForm.currency,
-                currencySymbol:
-                  currensies.value.find((c) => c.ticker === apartamentForm.currency)?.symbol || "",
+                currencySymbol: currensies.value.find((c) => c.ticker === apartamentForm.currency)?.symbol || "",
                 propertyId: Number(apartamentForm.propertyId),
                 photos: photoList.value.map((p) => p.name),
-                bookingStatus: apartamentForm.statusAvailable
-                  ? BookingStatus.FREE
-                  : BookingStatus.NOT_AVAILABLE,
+                bookingStatus: apartamentForm.statusAvailable ? BookingStatus.FREE : BookingStatus.NOT_AVAILABLE,
                 type:
                   (unref(propertyType) as unknown as CreateFrontApartamentDTOTypeEnum) ??
                   CreateFrontApartamentDTOTypeEnum.APARTMENT,
@@ -436,9 +391,7 @@ export default defineComponent({
           }
         }
 
-        apartamentForm.statusAvailable = !(
-          props.apartment.bookingStatus === FoundBookingStatus.NOT_AVAILABLE
-        );
+        apartamentForm.statusAvailable = !(props.apartment.bookingStatus === FoundBookingStatus.NOT_AVAILABLE);
 
         fileList.value =
           props.apartment.photos?.map((photo) => ({

@@ -1,20 +1,9 @@
 import { ElInput } from "element-plus";
-import {
-  computed,
-  getCurrentInstance,
-  onMounted,
-  PropType,
-  Ref,
-  ref,
-  SetupContext,
-  watch,
-} from "vue";
+import { computed, getCurrentInstance, onMounted, PropType, Ref, ref, SetupContext, watch } from "vue";
 
 export const inputProps = {
   modelValue: {
-    type: [String, Number, Object, Array] as PropType<
-      string | string[] | number | Record<string, unknown>
-    >,
+    type: [String, Number, Object, Array] as PropType<string | string[] | number | Record<string, unknown>>,
     default: null,
   },
   width: {

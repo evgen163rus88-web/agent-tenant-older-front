@@ -1,11 +1,5 @@
 <template>
-  <el-form
-    :model="billForm"
-    :rules="rules"
-    ref="ruleFormRef"
-    label-position="left"
-    v-loading="loading"
-  >
+  <el-form :model="billForm" :rules="rules" ref="ruleFormRef" label-position="left" v-loading="loading">
     <el-form-item :label="$t('type')" prop="type" class="mb-3 w-half">
       <el-select-v2 v-model="billForm.type" :options="options" style="width: 310px" disabled />
     </el-form-item>

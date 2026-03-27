@@ -1,12 +1,6 @@
 <template>
   <el-tooltip effect="light" :content="tooltip" v-if="notifications.length === 0">
-    <b-icon
-      icon="notification"
-      color="primary"
-      :class="{ pointer: notifications.length }"
-      size="large"
-      class="mr-3"
-    />
+    <b-icon icon="notification" color="primary" :class="{ pointer: notifications.length }" size="large" class="mr-3" />
   </el-tooltip>
 
   <el-tooltip v-else effect="light" :content="tooltip">
@@ -63,11 +57,7 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, toRefs, unref, ref } from "vue";
 import { RouteName } from "@/router/router-utils";
-import {
-  CreateNotificationDto,
-  notificationApi,
-  CreateNotificationDtoNameEnum as NoticeEnum,
-} from "@/api";
+import { CreateNotificationDto, notificationApi, CreateNotificationDtoNameEnum as NoticeEnum } from "@/api";
 import { useRouter } from "vue-router";
 import { useNotification } from "@/components/notifications/NotificationView";
 import { useLayoutsStore } from "@/store/layouts.store";
@@ -121,10 +111,7 @@ export default defineComponent({
       } else if (notice.name === NoticeEnum.CHECK_OUT) {
         emit("show-checkout");
         return;
-      } else if (
-        notice.name === NoticeEnum.PAY_DAY &&
-        parseTarget(notice.target).pd === new Date().getUTCDate()
-      ) {
+      } else if (notice.name === NoticeEnum.PAY_DAY && parseTarget(notice.target).pd === new Date().getUTCDate()) {
         emit("show-pay-day");
         return;
       }

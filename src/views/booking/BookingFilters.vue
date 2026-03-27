@@ -14,12 +14,7 @@
           clearable
           @clear="clearField('propertyId')"
         >
-          <el-option
-            v-for="item in properties"
-            :key="item.id"
-            :label="item.label"
-            :value="item.id || ''"
-          />
+          <el-option v-for="item in properties" :key="item.id" :label="item.label" :value="item.id || ''" />
         </el-select>
 
         <b-date-range-input v-model="datesFilter" :maxRange="12" />

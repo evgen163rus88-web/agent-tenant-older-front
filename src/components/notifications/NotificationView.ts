@@ -1,10 +1,4 @@
-import {
-  BaseEntityShema,
-  notificationApi,
-  bookingApi,
-  FindOneBookingDto,
-  CreateNotificationDto,
-} from "@/api";
+import { BaseEntityShema, notificationApi, bookingApi, FindOneBookingDto, CreateNotificationDto } from "@/api";
 import { Ref, ref } from "vue";
 
 /**

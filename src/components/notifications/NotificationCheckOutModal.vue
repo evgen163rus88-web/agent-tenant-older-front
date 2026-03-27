@@ -83,9 +83,7 @@ export default defineComponent({
     const selectedNotice = ref();
 
     const isMobile = computed(() => layoutsStore.isMobileScreen);
-    const noticeCheckout = computed(() =>
-      props.notifications.filter((note) => note.name === NoticeEnum.CHECK_OUT)
-    );
+    const noticeCheckout = computed(() => props.notifications.filter((note) => note.name === NoticeEnum.CHECK_OUT));
 
     const getTarget = (notice: CreateNotificationDto) => {
       const target = parseTarget(notice.target);

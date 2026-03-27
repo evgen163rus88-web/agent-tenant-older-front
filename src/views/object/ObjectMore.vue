@@ -22,22 +22,12 @@
         <p class="title mb-1">{{ $t("noties") }}:</p>
 
         <ol class="note-list mb-2">
-          <li
-            v-for="(note, index) in apartment.note"
-            :key="`note${index}`"
-            class="note-list__content"
-          >
+          <li v-for="(note, index) in apartment.note" :key="`note${index}`" class="note-list__content">
             <template v-if="!showInputEditNote[index]">
               <span class="mr-4">
                 {{ note }}
               </span>
-              <el-button
-                type="info"
-                circle
-                size="small"
-                class="ml-auto"
-                @click="showInputEditNote[index] = true"
-              >
+              <el-button type="info" circle size="small" class="ml-auto" @click="showInputEditNote[index] = true">
                 <b-icon>edit</b-icon>
               </el-button>
               <el-button type="info" circle size="small" @click="confirm(true, index)">
@@ -48,12 +38,7 @@
             <div v-else class="d-flex align-center">
               <el-input class="mr-2" v-model="notiesModel[index]" type="textarea" :rows="1" />
               <div class="d-flex justify-end">
-                <el-button
-                  type="danger"
-                  circle
-                  size="small"
-                  @click="showInputEditNote[index] = false"
-                >
+                <el-button type="danger" circle size="small" @click="showInputEditNote[index] = false">
                   <el-icon><Close /></el-icon>
                 </el-button>
                 <el-button type="success" circle size="small" class="mr-1" @click="updateNoties">
@@ -67,13 +52,7 @@
         <div v-if="showInputAddNewNote" class="w-100">
           <el-input class="mb-2" v-model="note" size="large" type="textarea" :rows="2" />
           <div class="d-flex justify-end">
-            <el-button
-              type="danger"
-              circle
-              size="small"
-              class="mr-3"
-              @click="showInputAddNewNote = false"
-            >
+            <el-button type="danger" circle size="small" class="mr-3" @click="showInputAddNewNote = false">
               <el-icon><Close /></el-icon>
             </el-button>
             <el-button type="success" circle size="small" @click="updateNoties">
@@ -96,11 +75,7 @@
         <div class="d-flex align-center mb-2">
           <p class="title mr-2">{{ $t("isHaveKitchen") }}:</p>
 
-          <el-tag
-            size="small"
-            :type="apartment.isKitchenAvailable ? 'success' : 'danger'"
-            effect="dark"
-          >
+          <el-tag size="small" :type="apartment.isKitchenAvailable ? 'success' : 'danger'" effect="dark">
             {{ $t(apartment.isKitchenAvailable ? "yes" : "no") }}
           </el-tag>
         </div>
@@ -120,12 +95,7 @@
       <ObjectMobileFromGrid v-if="isMobile" :data="apartment" />
     </div>
 
-    <ObjectActions
-      v-if="showActions"
-      :apartment="apartment"
-      @remove="confirm()"
-      @refresh="$emit('refresh')"
-    />
+    <ObjectActions v-if="showActions" :apartment="apartment" @remove="confirm()" @refresh="$emit('refresh')" />
   </div>
 </template>
 <script lang="ts">

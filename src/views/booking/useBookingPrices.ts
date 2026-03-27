@@ -20,9 +20,7 @@ export function useBookingPrices(bookingForm) {
   const loading = ref(false);
 
   const typePrice = computed({
-    get: () =>
-      enumPrice.value ||
-      (bookingForm.hasPriceAllPeriod ? Diapozon.PER_PERIOD : Diapozon.PER_MOUNTH),
+    get: () => enumPrice.value || (bookingForm.hasPriceAllPeriod ? Diapozon.PER_PERIOD : Diapozon.PER_MOUNTH),
     set: (val) => {
       enumPrice.value = val;
     },

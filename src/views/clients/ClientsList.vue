@@ -11,12 +11,7 @@
       </el-tag>
     </template>
     <template #default="{ item }">
-      <ClientMoreInfo
-        :key="item.id"
-        :client="item"
-        @edit="$emit('edit', $event)"
-        :isMobile="isMobile"
-      />
+      <ClientMoreInfo :key="item.id" :client="item" @edit="$emit('edit', $event)" :isMobile="isMobile" />
     </template>
   </b-grid>
 </template>

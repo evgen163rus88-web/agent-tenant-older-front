@@ -3,8 +3,8 @@ import { ref, watch } from "@vue/runtime-core";
 import { useI18n } from "vue-i18n";
 
 const locales = {
-  ru: () => import("element-plus/lib/locale/lang/ru"),
-  en: () => import("element-plus/lib/locale/lang/en"),
+  ru: () => import("element-plus/es/locale/lang/ru"),
+  en: () => import("element-plus/es/locale/lang/en"),
 };
 
 const i18n = useI18n();

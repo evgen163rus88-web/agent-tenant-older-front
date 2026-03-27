@@ -25,9 +25,7 @@ export default defineComponent({
   setup(props) {
     const i18n = useI18n();
     const $load = useLoad();
-    const showMoreText = computed(() =>
-      i18n.t("showMore", { count: props.state.pagination.limit })
-    );
+    const showMoreText = computed(() => i18n.t("showMore", { count: props.state.pagination.limit }));
     // const labelText = computed(() =>
     //   i18n.t("showingItems", {
     //     count: props.state.binding.value.length,

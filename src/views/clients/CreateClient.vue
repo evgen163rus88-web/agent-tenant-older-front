@@ -1,12 +1,5 @@
 <template>
-  <el-form
-    ref="ruleFormRef"
-    label-position="top"
-    :model="clientForm"
-    :rules="rules"
-    status-icon
-    v-loading="loading"
-  >
+  <el-form ref="ruleFormRef" label-position="top" :model="clientForm" :rules="rules" status-icon v-loading="loading">
     <div class="d-flex justify-around flex-wrap">
       <el-form-item :label="$t('listObj.firstName')" prop="firstName" class="mr-2 w-100 mw-30-desk">
         <el-input v-model="clientForm.firstName" autocomplete="off" size="large" />
@@ -25,11 +18,7 @@
 
     <div class="d-flex justify-between flex-wrap">
       <!-- phones -->
-      <el-form-item
-        :label="$t('fields.mainPhoneNumber')"
-        prop="phone"
-        class="w-100 mw-30-desk mr-2"
-      >
+      <el-form-item :label="$t('fields.mainPhoneNumber')" prop="phone" class="w-100 mw-30-desk mr-2">
         <b-phone-input
           v-model="clientForm.phone"
           @validate="isValidPhone = !!$event.valid"
@@ -53,13 +42,7 @@
     </div>
 
     <el-form-item :label="$t('fields.agentClient')" prop="agent" class="my-2 w-100">
-      <el-input
-        v-model="clientForm.agent"
-        autocomplete="off"
-        size="large"
-        maxlength="200"
-        show-word-limit
-      />
+      <el-input v-model="clientForm.agent" autocomplete="off" size="large" maxlength="200" show-word-limit />
     </el-form-item>
 
     <el-form-item :label="$t('photosDocs')">
@@ -122,6 +105,7 @@ export default defineComponent({
 
     const ruleFormRef = ref<FormInstance>();
     const clientForm = reactive({
+      id: undefined,
       firstName: "",
       lastName: "",
       email: undefined as string | undefined,

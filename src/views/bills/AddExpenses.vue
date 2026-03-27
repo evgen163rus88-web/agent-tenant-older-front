@@ -22,11 +22,7 @@
 
       <el-form-item :label="$t('fields.chooseApartament')" prop="apartamentId" class="mb-3">
         <el-select v-model="expenseForm.apartamentId" filterable value-key="id">
-          <el-option-group
-            v-for="(group, j) in apartaments"
-            :key="`apart${j}`"
-            :label="group[0].parent"
-          >
+          <el-option-group v-for="(group, j) in apartaments" :key="`apart${j}`" :label="group[0].parent">
             <el-option v-for="item in group" :key="item.id" :label="item.name" :value="item.id" />
           </el-option-group>
         </el-select>
@@ -39,12 +35,7 @@
           {{ $t("btns.reset") }}
         </el-button>
 
-        <el-button
-          class="ml-auto title"
-          type="primary"
-          size="large"
-          @click="submitForm(ruleFormRef)"
-        >
+        <el-button class="ml-auto title" type="primary" size="large" @click="submitForm(ruleFormRef)">
           {{ $t("btns.save") }}
         </el-button>
       </el-form-item>

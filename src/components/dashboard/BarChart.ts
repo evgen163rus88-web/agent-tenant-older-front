@@ -2,16 +2,7 @@ import { computed, defineComponent, h, PropType } from "vue";
 
 import { Bar } from "vue-chartjs";
 
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  Plugin,
-} from "chart.js";
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, Plugin } from "chart.js";
 import { GroupedByPeriods } from "@/api";
 import { useI18n } from "@/plugins";
 
